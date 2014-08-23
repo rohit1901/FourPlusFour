@@ -11,6 +11,8 @@
         <link rel="shortcut icon" href="../favicon.ico"> 
         <link rel="stylesheet" type="text/css" href="css/style-login.css" />
 		<script src="js/modernizr.custom.63321-login.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+		<script src="js/loginUser.js"></script>
 		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 		<style>	
 			@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
@@ -62,20 +64,20 @@
 			</header>
 			
 			<section class="main">
-				<form class="form-4">
+				<form class="form-4" id="studentLoginForm">
 					
 				    <h1>Login Now!</h1>
 				    <p>
 				        <label for="login">Username or email</label>
-				        <input type="text" name="login" placeholder="Username or email" required>
+				        <input type="text" name="login" id="username" placeholder="Username or email" required>
 				    </p>
 				    <p>
 				        <label for="password">Password</label>
-				        <input type="password" name='password' placeholder="Password" required> 
+				        <input type="password" name='password' id="password" placeholder="Password" required> 
 				    </p>
 
 				    <p>
-				        <input type="submit" name="submit" value="Continue">
+				        <input type="submit" name="submit" id="loginStudent" value="Continue">
 				    </p>       
 				</form>​
 			</section>
