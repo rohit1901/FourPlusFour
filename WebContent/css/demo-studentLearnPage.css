@@ -15,7 +15,8 @@
 .clearfix:after { clear: both; }
 
 body {
-	background: #D3EEE2;
+	background: #D3EEE2 url(../images/studentProfile/04.jpg) center top;
+	background-repeat: repeat-y;
 	color: #2E3444;
 	font-size: 100%;
 	line-height: 1.25;
