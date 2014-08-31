@@ -41,7 +41,7 @@ a:focus {
 
 .codrops-header h1 {
 	margin: 0;
-	font-weight: 300;
+	font-weight: bold;
 	font-size: 2.625em;
 	line-height: 1.3;
 }

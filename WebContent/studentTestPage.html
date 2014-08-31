@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Grid Loading and Hover Effect | Demo 2</title>
+		<meta name="description" content="Grid Loading and Hover Effect: Recreating Samsung's grid loading effect" />
+		<meta name="keywords" content="grid loading, swipe, effect, slide, masonry, web design, tutorial" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize-studentLearnPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo-studentLearnPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/component-studentLearnPage.css" />
+		<script src="js/modernizr.custom-studentLearnPage.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="welcomeStudent.html"><span>Access your MENU?</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="index.html"><span>Logout</span></a></span>
+			</div>
+			<header class="codrops-header">
+				<h1>Choose the Subject you want to take a test for today</h1>	
+			</header>
+			<section class="grid-wrap">
+				<ul class="grid swipe-down" id="grid">
+					<li class="title-box">
+						<h2>Illustrations by <a href="http://www.fourplusfour.org">FOUR PLUS FOUR</a></h2>
+					</li>
+					<li><a href="mathsTest/mathsTestDashboard.html"><img src="img/icons/maths.png" alt="dummy"><h3>MATHEMATICS</h3></a></li>
+					<li><a href="scienceTest/scienceTestDashboard.html"><img src="img/icons/science.png" alt="dummy"><h3>SCIENCE</h3></a></li>
+					<li><a href="historyTest/historyTestDashboard.html"><img src="img/icons/history.png" alt="dummy"><h3>HISTORY</h3></a></li>
+					<li><a href="geographyTest/geographyTestDashboard.html"><img src="img/icons/geography.png" alt="dummy"><h3>GEOGRAPHY</h3></a></li>
+					<li><a href="computersTest/computersTestDashboard.html"><img src="img/icons/computers.png" alt="dummy"><h3>COMPUTERS</h3></a></li>
+					<li><a href="englishTest/englishTestDashboard.html"><img src="img/icons/english.png" alt="dummy"><h3>ENGLISH</h3></a></li>
+					<li><a href="generalKnowledgeTest/generalKnowledgeTestDashboard.html"><img src="img/icons/gk.png" alt="dummy"><h3>GENERAL KNOWLEDGE</h3></a></li>
+				</ul>
+			</section>
+		</div><!-- /container -->
+		<script src="js/masonry.pkgd.min-studentLearnPage.js"></script>
+		<script src="js/imagesloaded.pkgd.min-studentLearnPage.js"></script>
+		<script src="js/classie-studentLearnPage.js"></script>
+		<script src="js/colorfinder-1.1-studentLearnPage.js"></script>
+		<script src="js/gridScrollFx.js"></script>
+		<script>
+			new GridScrollFx( document.getElementById( 'grid' ), {
+				viewportFactor : 0.4
+			} );
+		</script>
+	</body>
+</html>
