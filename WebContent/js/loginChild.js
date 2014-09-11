@@ -23,7 +23,7 @@ function matchCredentials(username,password,type)
                     if(data.toString() === "true")
                     {
                         alert("Welcome " + username + "");
-			            window.location.href = "welcomeStudent.html";
+			            window.location.href = "welcomeStudent.html?username=" + username;
                     }
                     else
                     {
