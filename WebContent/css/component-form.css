@@ -183,50 +183,6 @@ button.fs-continue,
 	pointer-events: none;
 }
 
-.fs-fields > li p::after {
-	position: relative;
-	display: inline-block;
-	margin-left: 10px;
-	width: 24px;
-	height: 24px;
-	border: 2px solid rgba(0,0,0,0.4);
-	color: rgba(0,0,0,0.4);
-	border-radius: 50%;
-	content: 'i';
-	vertical-align: top;
-	text-align: center;
-	font-weight: 700;
-	font-style: italic;
-	font-size: 14px;
-	font-family: Georgia, serif;
-	line-height: 20px;
-	cursor: pointer;
-	pointer-events: auto;
-}
-
-.fs-fields > li p::before {
-    position: absolute;
-    bottom: 100%;
-   	left: 0;
-    padding: 0 0 10px;
-    min-width: 200px;
-	content: attr(data-info);
-	font-size: 0.4em;
-	color: #6a7b7e;
-    opacity: 0;
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    -webkit-transform: translate3d(0,-5px,0);
-    transform: translate3d(0,-5px,0);
-    pointer-events: none;
-}
-
-.fs-form-full .fs-fields > li p:hover::before {
-    opacity: 1;
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-}
-
 .fs-form-full .fs-fields > li label[data-info]::after {
 	position: relative;
 	display: inline-block;

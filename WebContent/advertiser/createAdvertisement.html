@@ -24,8 +24,9 @@
 			</header>
 			<div class="main clearfix">
 				<form id="nl-form" class="nl-form">
-					I want to offer 
-					<select>
+					<input type="hidden" name="q1" id="q1"></input>
+                    I want to offer
+                    <select id="q2" name="q2">
 						<option value="1" selected>10%</option>
 						<option value="2">15%</option>
 						<option value="3">20%</option>
@@ -33,14 +34,8 @@
 						<option value="2">30%</option>
 					</select>
 					<br />discount on
-					<input type="text" value="" placeholder="product" data-subline="For example: <em>Pens</em> or <em>Pencil</em>"/>
-					. This offer is valid for the next
-					<select>
-						<option value="1" selected>1</option>
-					 	<option value="1">2</option>
-					 	<option value="2">3</option>
-					</select>
-					months only on<input type="text" value="" placeholder="www.fourplusfour.org" data-subline="For example: <em>www.fourplusfour.org</em>"/>
+					<input type="text" id="q3" name="q3" value="" placeholder="product" data-subline="For example: <em>Pens</em> or <em>Pencil</em>"/>
+					. This offer is valid for the next 1 month only on<input type="text" id="q4" name="q4"value="" placeholder="www.fourplusfour.org" data-subline="For example: <em>www.fourplusfour.org</em>"/>
 					<div class="nl-submit-wrap">
 						<button class="nl-submit" type="submit" id="submitAd">Create Ad</button>
 					</div>
@@ -52,10 +47,54 @@
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script>
 			var nlform = new NLForm( document.getElementById( 'nl-form' ) );
+            var queryString = window.location.search;
+            var email = getParameter("email", queryString);
+            
+            $("#q1").text(email);
+            $("#q1").val(email);
+            
 			$("#submitAd").click(function(event)
 			{
-				alert("Booyah!");
+				event.preventDefault();
+                var postData = $("#nl-form").serializeArray();
+                var formURL = "http://fast-coast-6607.herokuapp.com/credentialService/createAdvertisement";
+                $.ajax(
+                {
+                    url : formURL,
+                    type: "POST",
+                    data : postData,
+                    success:function(data, textStatus, jqXHR) 
+                    {
+                        alert("Details submitted successfully. Press OK to login using your new credentials.");
+                        window.location.href="advertiserDashboard.html?email=" + email;
+
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) 
+                    {
+                        alert("Some error occurred! Error----" + errorThrown);
+                    },
+                    done: function()
+                    {
+                        alert("Details submitted successfully. Press OK to login using your new credentials.");
+                        window.location.href = "loginAdvertiser.html";
+                    }
+                });
 			});
+            function getParameter(parameter, queryString)
+            {
+                var parameterValue;
+                var queryStringParts = queryString.split("&");
+                $.each(queryStringParts, function(index, value)
+                        {
+                            if(value.search(parameter) != -1)
+                            {
+                                var parameterValueArr = value.split("=");
+                                console.log("parameter " + parameter + "----" + parameterValueArr[1]);
+                                parameterValue = parameterValueArr[1];
+                            }
+                        });
+                return parameterValue;
+            }
 		</script>
 	</body>
 </html>

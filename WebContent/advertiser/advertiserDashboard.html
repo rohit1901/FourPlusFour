@@ -49,31 +49,50 @@
 				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
 					new SelectFx(el);
 				} );
-				$("#activity").click(function()
-				{
-					$("#proceedText").text("Proceed");
-				});
-				$("#proceedButton").click(function(event)
-				{
-					event.preventDefault();
-					if($("#activity option:selected").val() == "create")
-					{
-						window.location.href = "createAdvertisement.html";
-					}
-					else if($("#activity option:selected").val() == "viewAll")
-					{
-						window.location.href = "viewAllAdvertisements.html";
-					}
-					else if($("#activity option:selected").val() == "viewActive")
-					{
-						window.location.href = "viewActiveAdvertisements.html";
-					}
-					else
-					{
-						$("#proceedText").text("You've got to tell us what you want to do.");
-					}
-				});
 			})();
 		</script>
+        <script>
+            var queryString = window.location.search;
+            var email = getParameter("email", queryString);
+            $("#activity").click(function()
+            {
+                $("#proceedText").text("Proceed");
+            });
+            $("#proceedButton").click(function(event)
+            {
+                event.preventDefault();
+                if($("#activity option:selected").val() == "create")
+                {
+                    window.location.href = "createAdvertisement.html?email=" + email;
+                }
+                else if($("#activity option:selected").val() == "viewAll")
+                {
+                    window.location.href = "viewAllAdvertisements.html?email=" + email;
+                }
+                else if($("#activity option:selected").val() == "viewActive")
+                {
+                    window.location.href = "viewActiveAdvertisements.html?email=" + email;
+                }
+                else
+                {
+                    $("#proceedText").text("You've got to tell us what you want to do.");
+                }
+            });
+            function getParameter(parameter, queryString)
+            {
+                var parameterValue;
+                var queryStringParts = queryString.split("&");
+                $.each(queryStringParts, function(index, value)
+                        {
+                            if(value.search(parameter) != -1)
+                            {
+                                var parameterValueArr = value.split("=");
+                                console.log("parameter " + parameter + "----" + parameterValueArr[1]);
+                                parameterValue = parameterValueArr[1];
+                            }
+                        });
+                return parameterValue;
+            }
+        </script>
 	</body>
 </html>

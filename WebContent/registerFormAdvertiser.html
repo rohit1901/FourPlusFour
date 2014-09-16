@@ -15,6 +15,8 @@
 		<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
 		<link rel="stylesheet" type="text/css" href="css/cs-skin-boxes.css" />
 		<script src="js/modernizr.custom-form.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="js/registerAdvertiser.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -47,22 +49,25 @@
 							<label class="fs-field-label fs-anim-upper" for="q4" data-info="You'll have to share youe advertisement art and content with us.. We'll get in touch.">Which children's products do you want to advertise on FourPlusFour?</label>
 							<input class="fs-anim-lower" id="q4" name="q4" type="text" placeholder="For example -- FourPlusFour Pens" required/>
 						</li>
-						<li data-input-trigger>
-							<label class="fs-field-label fs-anim-upper" data-info="We'll make sure to use it all over">How long do you want to advertise with FourPlusFour?</label>
-							<select class="cs-select cs-skin-boxes fs-anim-lower">
-								<option value="" disabled selected>Plans</option>
-								<option value="1 month, $20" data-class="color-1month">1 month, $20</option>
-								<option value="3 months, $50" data-class="color-3month">3 months, $50</option>
-								<option value="6 months, $100" data-class="color-6month">6 months, $100</option>
-								<option value="1 year, $200" data-class="color-1year">1 year, $200</option>
-				            </select>
+						
+                        <li data-input-trigger>
+							<label class="fs-field-label fs-anim-upper" for="q5" data-info="This will help us know what kind of service you need">Choose an Advertisement plan</label>
+							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
+								<span><input id="q5b" name="q5" type="radio" value="1 month, $20"/><label for="q5b" class="radio-conversion">1 month, $20</label></span>
+								<span><input id="q5c" name="q5" type="radio" value="3 months, $50"/><label for="q5c" class="radio-social">3 months, $50</label></span>
+								<span><input id="q5a" name="q5" type="radio" value="6 months, $100"/><label for="q5a" class="radio-mobile">6 months, $100</label></span>
+							</div>
 						</li>
                         <li>
-							<label class="fs-field-label fs-anim-upper" for="q5">Describe something about your company</label>
-							<textarea class="fs-anim-lower" id="q4" name="q5" placeholder="Describe here"></textarea>
+							<label class="fs-field-label fs-anim-upper" for="q6">Describe something about your company</label>
+							<textarea class="fs-anim-lower" id="q6" name="q6" placeholder="Describe here"></textarea>
+						</li>
+                        <li>
+							<label class="fs-field-label fs-anim-upper" for="q7">Choose a password</label>
+							<input class="fs-anim-lower" id="q7" name="q7" type="password" placeholder="******" required/>
 						</li>
 					</ol><!-- /fs-fields -->
-					<button class="fs-submit" type="submit">Send answers</button>
+					<button class="fs-submit" type="submit" id="submit">Send answers</button>
 				</form><!-- /fs-form -->
 			</div><!-- /fs-form-wrap -->
 

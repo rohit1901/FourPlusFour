@@ -7,17 +7,7 @@ $( document ).ready(function()
         var password = $("#password").val();
         e.preventDefault();
         
-        if(username == "advertiser" && password == "advertiser")
-		{
-			alert("Welcome " + username);
-			window.location.href = "advertiser/advertiserDashboard.html";
-		}
-		else
-		{
-			alert("Invalid credentials entered. data obtained: " + "false" + "\n username: " + username + "\n password: " + password + "type: " + type);
-            location.reload(true);
-		}
-		//matchCredentials(username,password,type);
+        matchCredentials(username,password,type);
     })
 	
 });
@@ -33,11 +23,11 @@ function matchCredentials(username,password,type)
                     if(data.toString() === "true")
                     {
                         alert("Welcome " + username + "");
-			            window.location.href = "welcomeStudent.html";
+			            window.location.href = "advertiser/advertiserDashboard.html?email=" + username;
                     }
                     else
                     {
-                        alert("Invalid credentials entered. data obtained: " + data + "\n username: " + username + "\n password: " + password + "type: " + type);
+                        alert("Invalid credentials entered!\n Data obtained: " + data + ". \n username: " + username + ",\n password: " + password + ", \n type: " + type);
                         location.reload(true);
                     }
 

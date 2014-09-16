@@ -219,112 +219,84 @@ div.cs-skin-boxes:focus > span {
 	}
 }
 
-.cs-skin-boxes .cs-options li.color-1month {
-	background-image: url(../images/advertiserPlans/1month20.jpg);
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
+.cs-skin-boxes .cs-options li.color-588c75 {
+	background-color: #588c75;
 }
 
-.cs-skin-boxes .cs-options li.color-3month {
-	background-image: url(../images/advertiserPlans/3month50.jpg);
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
+.cs-skin-boxes .cs-options li.color-b0c47f {
+	background-color: #b0c47f;
 }
 
-.cs-skin-boxes .cs-options li.color-6month {
-	background-image: url(../images/advertiserPlans/6month100.jpg);
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
+.cs-skin-boxes .cs-options li.color-f3e395 {
+	background-color: #f3e395;
 }
 
-.cs-skin-boxes .cs-options li.color-1year {
-	background-image: url(../images/advertiserPlans/1year200.jpg);
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
+.cs-skin-boxes .cs-options li.color-f3ae73 {
+	background-color: #f3ae73;
 }
 
 .cs-skin-boxes .cs-options li.color-da645a {
 	background-color: #da645a;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-79a38f {
 	background-color: #79a38f;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-c1d099 {
 	background-color: #c1d099;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-f5eaaa {
 	background-color: #f5eaaa;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-f5be8f {
 	background-color: #f5be8f;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-e1837b {
 	background-color: #e1837b;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-9bbaab {
 	background-color: #9bbaab;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-d1dcb2 {
 	background-color: #d1dcb2;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-f9eec0 {
 	background-color: #f9eec0;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-f7cda9 {
 	background-color: #f7cda9;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-e8a19b {
 	background-color: #e8a19b;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-bdd1c8 {
 	background-color: #bdd1c8;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-e1e7cd {
 	background-color: #e1e7cd;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-faf4d4 {
 	background-color: #faf4d4;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-fbdfc9 {
 	background-color: #fbdfc9;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options li.color-f1c1bd {
 	background-color: #f1c1bd;
-    color: #000000;
 }
 
 .cs-skin-boxes .cs-options span {

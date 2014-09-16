@@ -15,6 +15,8 @@
 		<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
 		<link rel="stylesheet" type="text/css" href="css/cs-skin-boxes.css" />
 		<script src="js/modernizr.custom-form.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="js/registerStudent.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -56,8 +58,12 @@
 							<label class="fs-field-label fs-anim-upper" for="q6">Describe something about yourself</label>
 							<textarea class="fs-anim-lower" id="q6" name="q6" placeholder="Describe here"></textarea>
 						</li>
+                        <li>
+							<label class="fs-field-label fs-anim-upper" for="q7">Choose a password</label>
+							<input class="fs-anim-lower" id="q7" name="q7" type="password" placeholder="******" required/>
+						</li>
 					</ol><!-- /fs-fields -->
-					<button class="fs-submit" type="submit">Send answers</button>
+					<button class="fs-submit" type="submit" id="submit">Send answers</button>
 				</form><!-- /fs-form -->
 			</div><!-- /fs-form-wrap -->
 

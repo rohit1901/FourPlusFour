@@ -27,7 +27,7 @@ function matchCredentials(username,password,type)
                     }
                     else
                     {
-                        alert("Invalid credentials entered. data obtained: " + data + "\n username: " + username + "\n password: " + password + "type: " + type);
+                        alert("Invalid credentials entered!\nData obtained: " + data + ",\nusername: " + username + ",\npassword: " + password + ",\ntype: " + type);
                         location.reload(true);
                     }
 
