@@ -1,0 +1,359 @@
+/* General Demo Style */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	background: #f4f4f4 url(../images/03.jpg);
+	font-weight: 300;
+	font-size: 15px;
+	color: #333;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+a {
+	color: #555;
+	text-decoration: none;
+}
+
+.container {
+	width: 100%;
+	position: relative;
+}
+
+.main,
+.container > header {
+	width: 90%;
+	max-width: 960px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0 10px;
+}
+
+.container > header {
+	padding: 40px 10px 50px;
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0 1px rgba(255,255,255,0.8);
+	margin-bottom: 30px;
+}
+
+.container > header h1 {
+	font-size: 34px;
+	line-height: 38px;
+	margin: 0;
+	font-weight: 700;
+	color: #333;
+	float: left;
+}
+
+.container > header h1 span {
+	display: block;
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.fleft {
+	float: left;
+	width: 49%;
+	min-width: 300px;
+}
+
+.main p {
+	color: #000;
+	padding: 20px 30px 0px 0px;
+	font-size: 20px;
+	line-height: 34px;
+	font-weight: 300;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Header Style */
+.codrops-top {
+	line-height: 24px;
+	font-size: 11px;
+	background: #fff;
+	background: rgba(255, 255, 255, 0.5);
+	text-transform: uppercase;
+	z-index: 9999;
+	position: relative;
+	box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
+}
+
+.codrops-top a {
+	padding: 0px 10px;
+	letter-spacing: 1px;
+	color: #333;
+	display: inline-block;
+}
+
+.codrops-top a:hover {
+	background: rgba(255,255,255,0.8);
+	color: #000;
+}
+
+.codrops-top span.right {
+	float: right;
+}
+
+.codrops-top span.right a {
+	float: left;
+	display: block;
+}
+
+/* Demo Buttons Style */
+.codrops-demos {
+	float: right;
+	padding-top: 10px;
+}
+
+.codrops-demos a {
+	display: inline-block;
+	margin: 10px;
+	color: #666;
+	font-weight: 700;
+	line-height: 30px;
+	border-bottom: 4px solid transparent;
+}
+
+.codrops-demos a:hover {
+	color: #000;
+	border-color: #000;
+}
+
+.codrops-demos a.current-demo,
+.codrops-demos a.current-demo:hover {
+	color: #aaa;
+	border-color: #aaa;
+}
+
+
+@media screen and (max-width: 730px){
+	.fleft {
+		width: 100%;
+		float: none;
+		text-align: center;
+	}
+} 
+
+/* General button style (reset) */
+.btn {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 25px 80px;
+	display: inline-block;
+	margin: 15px 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Button 2 */
+.btn-2 {
+	background: #cb4e4e;
+	color: #fff;
+	box-shadow: 0 6px #ab3c3c;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+}
+
+/* Button 2a */
+.btn-2a {
+	border-radius: 0 0 5px 5px;
+}
+
+.btn-2a:hover {
+	box-shadow: 0 4px #ab3c3c;
+	top: 2px;
+}
+
+.btn-2a:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+/* Button 2b */
+.btn-2b {
+	border-radius: 0 0 5px 5px;
+}
+
+.btn-2b:hover {
+	box-shadow: 0 8px #ab3c3c;
+	top: -2px;
+}
+
+.btn-2b:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+/* Button 2c */
+.btn-2c {
+	border-radius: 5px;
+}
+
+.btn-2c:hover {
+	box-shadow: 0 4px #ab3c3c;
+	top: 2px;
+}
+
+.btn-2c:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+/* Button 2d */
+.btn-2d {
+	border-radius: 5px;
+}
+
+.btn-2d:hover {
+	box-shadow: 0 8px #ab3c3c;
+	top: -2px;
+}
+
+.btn-2d:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+/* Button 2e */
+.btn-2e {
+	border-radius: 5px;
+	box-shadow: -6px 0 #ab3c3c;
+}
+
+.btn-2e:hover {
+	box-shadow: -4px 0 #ab3c3c;
+	left: -2px;
+}
+
+.btn-2e:active {
+	box-shadow: 0 0 #ab3c3c;
+	left: -6px;
+}
+
+/* Button 2f */
+.btn-2f {
+	border-radius: 5px;
+	box-shadow: 6px 0 #ab3c3c;
+}
+
+.btn-2f:hover {
+	box-shadow: 4px 0 #ab3c3c;
+	left: 2px;
+}
+
+.btn-2f:active {
+	box-shadow: 0 0 #ab3c3c;
+	left: 6px;
+}
+
+/* Button 2g */
+.btn-2g {
+	border-radius: 40px;
+}
+
+.btn-2g:hover {
+	box-shadow: 0 4px #ab3c3c;
+	top: 2px;
+}
+
+.btn-2g:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+/* Button 2h */
+.btn-2h {
+	border-radius: 20px;
+}
+
+.btn-2h:hover {
+	box-shadow: 0 4px #ab3c3c;
+	top: 2px;
+}
+
+.btn-2h:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+/* Button 2i */
+.btn-2i {
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	padding: 0;
+}
+
+.btn-2i:hover {
+	box-shadow: 0 4px #ab3c3c;
+	top: 2px;
+}
+
+.btn-2i:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+/* Button 2j */
+.btn-2j {
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	padding: 0;
+}
+
+.btn-2j:hover {
+	box-shadow: 0 8px #ab3c3c;
+	top: -2px;
+}
+
+.btn-2j:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}

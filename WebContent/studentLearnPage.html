@@ -2,52 +2,75 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Grid Loading and Hover Effect | Demo 2</title>
-		<meta name="description" content="Grid Loading and Hover Effect: Recreating Samsung's grid loading effect" />
-		<meta name="keywords" content="grid loading, swipe, effect, slide, masonry, web design, tutorial" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/normalize-studentLearnPage.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo-studentLearnPage.css" />
-		<link rel="stylesheet" type="text/css" href="css/component-studentLearnPage.css" />
-		<script src="js/modernizr.custom-studentLearnPage.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Student Learning Page</title>
+		<meta name="description" content="Student Learning Page" />
+		<meta name="keywords" content="drop-down, select, jquery, plugin, fallback, transition, transform, 3d, css3" />
+		<meta name="author" content="FourPlusFour.org" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/style2_studentLearnPage.css" />
+		<script src="js/modernizr.custom.63321_studentLearnPage.js"></script>
 	</head>
 	<body>
-		<div class="container">
-			<!-- Top Navigation -->
+		<div class="container">	
+			<!-- Codrops top bar -->
 			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="welcomeStudent.html"><span>Access your MENU?</span></a>
+				<a class="codrops-icon codrops-icon-prev" href="welcomeStudent.html"><span> &laquo; Access your MENU?</span></a>
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="index.html"><span>Logout</span></a></span>
 			</div>
-			<header class="codrops-header">
-				<h1>Choose the Subject you want to learn today</h1>	
+			<header class="clearfix">
+				<h1>Learn with us</h1>
 			</header>
-			<section class="grid-wrap">
-				<ul class="grid swipe-down" id="grid">
-					<li class="title-box">
-						<h2>Illustrations by <a href="http://www.fourplusfour.org">FOUR PLUS FOUR</a></h2>
-					</li>
-					<li><a href="#"><img src="img/icons/maths.png" alt="dummy"><h3>MATHEMATICS</h3></a></li>
-					<li><a href="#"><img src="img/icons/science.png" alt="dummy"><h3>SCIENCE</h3></a></li>
-					<li><a href="#"><img src="img/icons/music.png" alt="dummy"><h3>MUSIC</h3></a></li>
-					<li><a href="#"><img src="img/icons/geography.png" alt="dummy"><h3>GEOGRAPHY</h3></a></li>
-					<li><a href="#"><img src="img/icons/computers.png" alt="dummy"><h3>COMPUTERS</h3></a></li>
-					<li><a href="#"><img src="img/icons/english.png" alt="dummy"><h3>ENGLISH</h3></a></li>
-					<li><a href="#"><img src="img/icons/gk.png" alt="dummy"><h3>GENERAL KNOWLEDGE</h3></a></li>
-				</ul>
+			<section class="main clearfix">
+				<div class="fleft">
+					<p>Select a subject from the drop down and click on the LEARN button below.</p>
+					<p>
+						<button class="btn btn-2 btn-2a" id="learn">Learn</button>
+					</p>
+				</div>
+				<div class="fleft">
+					<select id="cd-dropdown" class="cd-select">
+						<option value="-1" selected>Choose a Subject to learn</option>
+						<option name="history" value="history" class="icon-history">History</option>
+						<option name="mathematics" value="mathematics" class="icon-calculate">Mathematics</option>
+						<option name="science" value="science" class="icon-lab">Science</option>
+						<option name="geography" value="geography" class="icon-earth">Geography</option>
+						<option name="english" value="english" class="icon-spell-check">English</option>
+						<option name="music" value="music" class="icon-music">Music</option>
+					</select>
+				</div>
 			</section>
-		</div><!-- /container -->
-		<script src="js/masonry.pkgd.min-studentLearnPage.js"></script>
-		<script src="js/imagesloaded.pkgd.min-studentLearnPage.js"></script>
-		<script src="js/classie-studentLearnPage.js"></script>
-		<script src="js/colorfinder-1.1-studentLearnPage.js"></script>
-		<script src="js/gridScrollFx.js"></script>
-		<script>
-			new GridScrollFx( document.getElementById( 'grid' ), {
-				viewportFactor : 0.4
-			} );
+		</div>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.dropdown_studentLearnPage.js"></script>
+		<script type="text/javascript">
+			
+			var selectedValue;
+			$( function() {
+				
+				$( '#cd-dropdown' ).dropdown( {
+					gutter : 6,
+					delay : 100,
+					random : true,
+					onOptionSelect : function( opt ) 
+					{
+						selectedValue = opt.data( 'value' );
+					}
+				} );
+
+			});
+			$("#learn").click(function()
+							{
+								if(selectedValue != undefined)
+								{
+									alert(selectedValue);
+								}
+								else
+								{
+									alert("please select a subject to learn!");
+								}
+							});
 		</script>
 	</body>
 </html>
