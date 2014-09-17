@@ -15,12 +15,12 @@ $.ajax(
                });
         $("#delete").click(function()
                     {
-                        alert("deleted");
+                        //alert("deleted");
                     })
     },
     error: function(jqXHR, textStatus, errorThrown) 
     {
-        alert("Some error occurred! Error----" + errorThrown);
+        console.log("Some error occurred! Error----" + errorThrown);
     },
     done: function(data)
     {

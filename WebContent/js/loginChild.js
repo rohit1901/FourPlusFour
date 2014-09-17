@@ -22,13 +22,33 @@ function matchCredentials(username,password,type)
                 {
                     if(data.toString() === "true")
                     {
-                        alert("Welcome " + username + "");
-			            window.location.href = "welcomeStudent.html?username=" + username;
+                        var notification = new NotificationFx({
+							message : '<p>Welcome \n' + username + '\nThis page will redirect automatically in a jiffy!</p>',
+							layout : 'growl',
+							effect : 'slide',
+							type : 'notice', // notice, warning or error
+							onClose : function() {
+								window.location.href = "welcomeStudent.html?username=" + username;
+							}
+						});
+
+						// show the notification
+						notification.show();
                     }
                     else
                     {
-                        alert("Invalid credentials entered!\nData obtained: " + data + ",\nusername: " + username + ",\npassword: " + password + ",\ntype: " + type);
-                        location.reload(true);
+                        var notification = new NotificationFx({
+							message : '<p>Invalid Credentials entered.\nThis page will reload automatically in a jiffy!</p>',
+							layout : 'growl',
+							effect : 'slide',
+							type : 'notice', // notice, warning or error
+							onClose : function() {
+								location.reload(true);
+							}
+						});
+
+						// show the notification
+						notification.show();
                     }
 
                 });

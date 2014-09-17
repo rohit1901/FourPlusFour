@@ -12,6 +12,9 @@
 		<link rel="stylesheet" type="text/css" href="css/default_createAdvertisement.css" />
 		<link rel="stylesheet" type="text/css" href="css/component_createAdvertisement.css" />
 		<script src="js/modernizr.custom_createAdvertisement.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/ns-default-alert.css" />
+		<link rel="stylesheet" type="text/css" href="../css/ns-style-growl-alert.css" />
+		<script src="../js/modernizr.custom-alert.js"></script>
 	</head>
 	<body class="nl-blurred">
 		<div class="container demo-1">
@@ -27,11 +30,11 @@
 					<input type="hidden" name="q1" id="q1"></input>
                     I want to offer
                     <select id="q2" name="q2">
-						<option value="1" selected>10%</option>
-						<option value="2">15%</option>
-						<option value="3">20%</option>
-						<option value="4">25%</option>
-						<option value="2">30%</option>
+						<option value="10%" selected>10%</option>
+						<option value="15%">15%</option>
+						<option value="20%">20%</option>
+						<option value="25%">25%</option>
+						<option value="30%">30%</option>
 					</select>
 					<br />discount on
 					<input type="text" id="q3" name="q3" value="" placeholder="product" data-subline="For example: <em>Pens</em> or <em>Pencil</em>"/>
@@ -44,7 +47,9 @@
 			</div>
 		</div><!-- /container -->
 		<script src="js/nlform.js"></script>
+		<script src="../js/classie-alert.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="../js/notificationFx-alert.js"></script>
 		<script>
 			var nlform = new NLForm( document.getElementById( 'nl-form' ) );
             var queryString = window.location.search;
@@ -65,18 +70,42 @@
                     data : postData,
                     success:function(data, textStatus, jqXHR) 
                     {
-                        alert("Details submitted successfully. Press OK to login using your new credentials.");
+                        /*
+						alert("Details submitted successfully. Press OK to login using your new credentials.");
                         window.location.href="advertiserDashboard.html?email=" + email;
+						*/
+						var notification = new NotificationFx({
+							message : '<p>Details submitted successfully.\nThis page will redirect automatically in a jiffy!</p>',
+							layout : 'growl',
+							effect : 'slide',
+							type : 'notice', // notice, warning or error
+							onClose : function() {
+								window.location.href="advertiserDashboard.html?email=" + email;
+							}
+						});
+
+						// show the notification
+						notification.show();
 
                     },
                     error: function(jqXHR, textStatus, errorThrown) 
                     {
-                        alert("Some error occurred! Error----" + errorThrown);
+                        var notification = new NotificationFx({
+							message : '<p>Some error occurred! Error----.' + errorThrown + '\nThis page will reload automatically in a jiffy!</p>',
+							layout : 'growl',
+							effect : 'slide',
+							type : 'notice', // notice, warning or error
+							onClose : function() {
+								location.reload(true);
+							}
+						});
+
+						// show the notification
+						notification.show();
                     },
                     done: function()
                     {
-                        alert("Details submitted successfully. Press OK to login using your new credentials.");
-                        window.location.href = "loginAdvertiser.html";
+                        
                     }
                 });
 			});

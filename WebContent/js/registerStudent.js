@@ -14,8 +14,8 @@ $( document ).ready(function()
             type: "GET",
             success:function(data, textStatus, jqXHR) 
             {
-                alert(duplicateUserURL + "\n" + data);
-                if(data == "false")
+                //alert(duplicateUserURL + "\n" + data);
+                if(data.toString() == "false")
                 {
                     $.ajax(
                     {
@@ -24,34 +24,97 @@ $( document ).ready(function()
                         data : postData,
                         success:function(data, textStatus, jqXHR) 
                         {
-                            alert("Details submitted successfully. Press OK to login using your new credentials.");
+                            /*
+							alert("Details submitted successfully. Press OK to login using your new credentials.");
                             window.location.href = "loginChild.html";
+							*/
+							var notification = new NotificationFx({
+								message : '<p>Details submitted successfully.\nThis page will redirect to the login screen automatically in a jiffy!</p>',
+								layout : 'growl',
+								effect : 'slide',
+								type : 'notice', // notice, warning or error
+								onClose : function() {
+									window.location.href = "loginChild.html";
+								}
+							});
+
+							// show the notification
+							notification.show();
 
                         },
                         error: function(jqXHR, textStatus, errorThrown) 
                         {
-                            alert("Some error occurred! Error----" + errorThrown);
+                            //alert("Some error occurred! Error----" + errorThrown);
+							var notification = new NotificationFx({
+								message : '<p>Some error occurred! Error----' + errorThrown + '. \nThis page will reload automatically.</p>',
+								layout : 'growl',
+								effect : 'slide',
+								type : 'notice', // notice, warning or error
+								onClose : function() {
+									location.reload(true);
+								}
+							});
+
+							// show the notification
+							notification.show();
                         },
                         done: function()
                         {
-                            alert("Details submitted successfully. Press OK to login using your new credentials.");
+                            /*
+							alert("Details submitted successfully. Press OK to login using your new credentials.");
                             window.location.href = "loginChild.html";
+							*/
+							var notification = new NotificationFx({
+								message : '<p>Details submitted successfully.\nThis page will redirect to the login screen automatically in a jiffy!</p>',
+								layout : 'growl',
+								effect : 'slide',
+								type : 'notice', // notice, warning or error
+								onClose : function() {
+									window.location.href = "loginChild.html";
+								}
+							});
+
+							// show the notification
+							notification.show();
                         }
                     });
                 }
                 else
                 {
-                    alert("username/email already exists. Please try again with a different email id.");
+                    //alert("username/email already exists. Please try again with a different email id.");
+					var notification = new NotificationFx({
+							message : '<p>username/email already exists. Please try again with a different email id.\nThis page will reload automatically in a jiffy!</p>',
+							layout : 'growl',
+							effect : 'slide',
+							type : 'notice', // notice, warning or error
+							onClose : function() {
+								location.reload(true);
+							}
+						});
+
+						// show the notification
+						notification.show();
                 }
 
             },
             error: function(jqXHR, textStatus, errorThrown) 
             {
-                alert("Some error occurred! Error----" + errorThrown);
+                var notification = new NotificationFx({
+					message : '<p>Some error occurred! Error----' + errorThrown + '. \nThis page will reload automatically.</p>',
+					layout : 'growl',
+					effect : 'slide',
+					type : 'notice', // notice, warning or error
+					onClose : function() {
+						location.reload(true);
+					}
+				});
+
+				// show the notification
+				notification.show();
             },
             done: function()
             {
-                alert("Details submitted successfully. Press OK to login using your new credentials.");
+                
             }
         });
         
