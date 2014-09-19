@@ -38,7 +38,7 @@
 					</select>
 					<br />discount on
 					<input type="text" id="q3" name="q3" value="" placeholder="product" data-subline="For example: <em>Pens</em> or <em>Pencil</em>"/>
-					. This offer is valid for the next 1 month only on<input type="text" id="q4" name="q4"value="" placeholder="www.fourplusfour.org" data-subline="For example: <em>www.fourplusfour.org</em>"/>
+					. This offer is valid for the next 1 month only on <input type="text" id="q4" name="q4" value="" placeholder="www.fourplusfour.org" data-subline="For example: <em>www.fourplusfour.org</em>"/>
 					<div class="nl-submit-wrap">
 						<button class="nl-submit" type="submit" id="submitAd">Create Ad</button>
 					</div>
@@ -50,80 +50,6 @@
 		<script src="../js/classie-alert.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="../js/notificationFx-alert.js"></script>
-		<script>
-			var nlform = new NLForm( document.getElementById( 'nl-form' ) );
-            var queryString = window.location.search;
-            var email = getParameter("email", queryString);
-            
-            $("#q1").text(email);
-            $("#q1").val(email);
-            
-			$("#submitAd").click(function(event)
-			{
-				event.preventDefault();
-                var postData = $("#nl-form").serializeArray();
-                var formURL = "http://fast-coast-6607.herokuapp.com/credentialService/createAdvertisement";
-                $.ajax(
-                {
-                    url : formURL,
-                    type: "POST",
-                    data : postData,
-                    success:function(data, textStatus, jqXHR) 
-                    {
-                        /*
-						alert("Details submitted successfully. Press OK to login using your new credentials.");
-                        window.location.href="advertiserDashboard.html?email=" + email;
-						*/
-						var notification = new NotificationFx({
-							message : '<p>Details submitted successfully.\nThis page will redirect automatically in a jiffy!</p>',
-							layout : 'growl',
-							effect : 'slide',
-							type : 'notice', // notice, warning or error
-							onClose : function() {
-								window.location.href="advertiserDashboard.html?email=" + email;
-							}
-						});
-
-						// show the notification
-						notification.show();
-
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) 
-                    {
-                        var notification = new NotificationFx({
-							message : '<p>Some error occurred! Error----.' + errorThrown + '\nThis page will reload automatically in a jiffy!</p>',
-							layout : 'growl',
-							effect : 'slide',
-							type : 'notice', // notice, warning or error
-							onClose : function() {
-								location.reload(true);
-							}
-						});
-
-						// show the notification
-						notification.show();
-                    },
-                    done: function()
-                    {
-                        
-                    }
-                });
-			});
-            function getParameter(parameter, queryString)
-            {
-                var parameterValue;
-                var queryStringParts = queryString.split("&");
-                $.each(queryStringParts, function(index, value)
-                        {
-                            if(value.search(parameter) != -1)
-                            {
-                                var parameterValueArr = value.split("=");
-                                console.log("parameter " + parameter + "----" + parameterValueArr[1]);
-                                parameterValue = parameterValueArr[1];
-                            }
-                        });
-                return parameterValue;
-            }
-		</script>
+		<script src="js/createAdvertisement.js"></script>
 	</body>
 </html>
