@@ -1,8 +1,6 @@
 $( document ).ready(function()
 {
-	var queryString = window.location.search;
-	var usernameParam = queryString.split("=");
-	var username = usernameParam[1];
+	var username = $.session.get('username');
 	$("#studentName").text(username);
 });
 

@@ -1,6 +1,8 @@
 $( document ).ready(function()
 {
-	var type = "sponsor";
+	$.session.clear();
+    localStorage.removeItem('amount');
+    var type = "sponsor";
     
 	$("#sponsorLoginForm").submit(function(e)
 	{
@@ -52,7 +54,9 @@ function getSponsorAmount(username)
           context: document.body
         }).done(function(data) 
                 {
+                    $.session.set('username', username);
                     var amount = data.toString();
+                    localStorage.setItem('amount', amount);
                     /*
 					alert("Welcome " + username);
                     window.location.href = "sponsor/sponsorDashboard.html?username=" + username + "&amount=" + amount;

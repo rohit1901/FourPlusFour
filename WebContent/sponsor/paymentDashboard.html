@@ -4,16 +4,16 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Advertiser Dashboard</title>
-		<meta name="description" content="A dashboard for the activities of an advertiser" />
+		<title>Payment Dashboard</title>
+		<meta name="description" content="A dashboard for the payment options of a sponsor" />
 		<meta name="keywords" content="custom select, select style, javascript, inspiration, select element" />
 		<meta name="author" content="FourPlusFour.org" />
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
-		<link rel="stylesheet" type="text/css" href="css/cs-skin-elastic.css" />
+		<link rel="stylesheet" type="text/css" href="../advertiser/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="../advertiser/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../advertiser/css/cs-select.css" />
+		<link rel="stylesheet" type="text/css" href="../advertiser/css/cs-skin-elastic.css" />
 		<!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -22,17 +22,17 @@
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="../loginAdvertiser.html"><span>Logout</span></a>
+				<a class="codrops-icon codrops-icon-prev" href="sponsorDashboard.html"><span>View your dashboard</span></a>
 			</div>
 			<header class="codrops-header">
-				<h1><span>Advertiser's</span> Dashboard</h1>	
+				<h1><span>Select a </span> Donation Method</h1>	
 			</header>
 			<section id="activity">
 				<select class="cs-select cs-skin-elastic">
-					<option value="" disabled selected>What do you want to do?</option>
-					<option value="create" data-class="create-advertisement">Create an Advertisement</option>
-					<option value="viewAll" data-class="all-advertisement">View all Advertisements</option>
-					<option value="viewActive" data-class="active-advertisement">View active Advertisements</option>
+					<option value="" disabled selected>How do you want to donate?</option>
+					<option value="create" data-class="paypal">PayPal</option>
+					<option value="viewAll" data-class="check">Write us a check</option>
+					<option value="viewActive" data-class="online-transfer">Transfer Online</option>
 				</select>
 				
 			</section>
@@ -41,8 +41,8 @@
 				<a href="" id="proceedButton"><h3 id="proceedText">Proceed</h3></a>
 			</section>
 		</div><!-- /container -->
-		<script src="js/classie.js"></script>
-		<script src="js/selectFx.js"></script>
+		<script src="../advertiser/js/classie.js"></script>
+		<script src="../advertiser/js/selectFx.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="../js/jquery.session.js"></script>
 		<script>
@@ -65,22 +65,24 @@
                 event.preventDefault();
                 if($("#activity option:selected").val() == "create")
                 {
-                    window.location.href = "createAdvertisement.html?email=" + email;
+                    //window.location.href = "createAdvertisement.html?email=" + email;
+                    $("#proceedText").text("This doesn't do anything right now!");
                 }
                 else if($("#activity option:selected").val() == "viewAll")
                 {
-                    window.location.href = "viewAllAdvertisements.html?email=" + email;
+                    //window.location.href = "viewAllAdvertisements.html?email=" + email;
+                    $("#proceedText").text("This doesn't do anything right now!");
                 }
                 else if($("#activity option:selected").val() == "viewActive")
                 {
-                    window.location.href = "viewActiveAdvertisements.html?email=" + email;
+                    //window.location.href = "viewActiveAdvertisements.html?email=" + email;
+                    $("#proceedText").text("This doesn't do anything right now!");
                 }
                 else
                 {
                     $("#proceedText").text("You've got to tell us what you want to do.");
                 }
             });
-            
             function getParameter(parameter, queryString)
             {
                 var parameterValue;

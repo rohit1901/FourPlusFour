@@ -140,12 +140,12 @@ $( document ).ready(function()
 			
 			if(emailValidationErrorMsg.search("Oops!") == 0)
 			{
-				Validation_Error_Message = nameValidationErrorMsg;
+				Validation_Error_Message = emailValidationErrorMsg;
 			}
 			
 			if(bioValidationErrorMsg.search("Oops!") == 0)
 			{
-				Validation_Error_Message = nameValidationErrorMsg;
+				Validation_Error_Message = bioValidationErrorMsg;
 			}
 			
 

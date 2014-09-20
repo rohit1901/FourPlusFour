@@ -12,7 +12,8 @@ var EMPTY = "";
 
 var nlform = new NLForm( document.getElementById( 'nl-form' ) );
 var queryString = window.location.search;
-var email = getParameter("email", queryString);
+//var email = getParameter("email", queryString);
+var email = $.session.get('username');
 
 $("#q1").text(email);
 $("#q1").val(email);

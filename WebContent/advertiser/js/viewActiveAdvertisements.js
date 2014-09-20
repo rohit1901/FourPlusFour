@@ -1,6 +1,6 @@
 var queryString = window.location.search;
-var email = getParameter("email", queryString);
-
+//var email = getParameter("email", queryString);
+var email = $.session.get('username');
 var url = "http://fast-coast-6607.herokuapp.com/credentialService/getAllAdvertisements?email=" + email;
 $.ajax(
 {

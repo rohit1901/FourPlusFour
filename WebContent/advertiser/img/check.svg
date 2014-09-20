@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
+You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<path id="debit-2-icon" d="M221.833,195.876h98.394l-19.953,20h-58.44v18.667h39.817l-19.953,20h-39.864V195.876z M382,302.919
+	v40.457H80V169.21h266.83l29.93-30H50v234.166h362V273.141L382,302.919z M201.833,234.542h-94.497v20h94.497V234.542z
+	 M107.336,318.376h94.497v-20h-94.497V318.376z M221.833,318.376h41.194v-20h-41.194V318.376z M201.833,195.876h-94.497v20h94.497
+	V195.876z M295.774,257.419l47.314,47.286l-62.604,14.17L295.774,257.419z M462,187.352L357.9,291.393l-48.753-48.726
+	l104.101-104.042L462,187.352z"/>
+</svg>

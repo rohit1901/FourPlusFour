@@ -1,6 +1,7 @@
 $( document ).ready(function()
 {
-	var type = "child";
+	$.session.clear();
+    var type = "child";
     $("#studentLoginForm").submit(function(e)
 	{
 		var username = $("#username").val();
@@ -22,13 +23,14 @@ function matchCredentials(username,password,type)
                 {
                     if(data.toString() === "true")
                     {
+                        $.session.set('username',username);
                         var notification = new NotificationFx({
-							message : '<p>Welcome \n' + username + '\nThis page will redirect automatically in a jiffy!</p>',
+							message : '<p>Welcome \n' + $.session.get('username') + '\nThis page will redirect automatically in a jiffy!</p>',
 							layout : 'growl',
 							effect : 'slide',
 							type : 'notice', // notice, warning or error
 							onClose : function() {
-								window.location.href = "welcomeStudent.html?username=" + username;
+								window.location.href = "welcomeStudent.html";
 							}
 						});
 
