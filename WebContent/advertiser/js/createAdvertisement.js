@@ -18,16 +18,24 @@ var email = $.session.get('username');
 $("#q1").text(email);
 $("#q1").val(email);
 
-var discount = $("#q2").val();
-var product = $("#q3").val();
-var website = $("#q4").val();
+var discount;
+var product;
+var website;
 
-var discountValidationErrorMsg = validateParameter(discount, EMPTY);
-var productValidationErrorMsg = validateParameter(product, EMPTY);
-var websiteValidationErrorMsg = validateParameter(website, EMPTY);
+var discountValidationErrorMsg;
+var productValidationErrorMsg;
+var websiteValidationErrorMsg;
 
 $("#submitAd").click(function(event)
 {
+	discount = $("#q2 option:selected").val();
+	product = $("#q3").val();
+	website = $("#q4").val();
+	
+	discountValidationErrorMsg = validateParameter(discount, EMPTY);
+	productValidationErrorMsg = validateParameter(product, EMPTY);
+	websiteValidationErrorMsg = validateParameter(website, EMPTY);
+	
 	event.preventDefault();
 	var postData = $("#nl-form").serializeArray();
 	var formURL = "http://fast-coast-6607.herokuapp.com/credentialService/createAdvertisement";

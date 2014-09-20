@@ -16,7 +16,7 @@ $( document ).ready(function()
     $("#contributeButton").click(function(e)
         {
             e.preventDefault();
-            window.location.href = "paymentDashboard.html;
+            window.location.href = "paymentDashboard.html";
         });
 });
 
