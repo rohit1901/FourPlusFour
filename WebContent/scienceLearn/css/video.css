@@ -1,0 +1,5 @@
+
+video, figure{ margin: 0 0 15px 0; }
+img { max-width: 100%; }
+figure { display: block; background: #eee; padding: 10px; }
+figcaption { display: block; text-align: center; margin: 10px 0; font-style: italic; font-size: 14px; orphans: 2; }

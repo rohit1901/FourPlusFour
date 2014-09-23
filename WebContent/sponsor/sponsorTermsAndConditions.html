@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Sponsor Terms and conditions</title>
+		<meta name="description" content="Sponsor Terms and conditions" />
+		<meta name="keywords" content="expanding button, morph, modal, fullscreen, transition, ui" />
+		<meta name="author" content="FourPlusFour.org" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/content.css" />
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="../registerSelectProfile.html"><span></span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="www.fourplusfour.org"><span></span></a></span>
+			</div>
+			<section>
+				<p>Click the button below to read the <strong>Terms &amp; Conditions</strong> of a sponsor</p>
+				<div class="mockup-content">
+					<span></span><span></span><span></span><span></span>
+					<div class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+						<button type="button">Terms &amp; Conditions</button>
+						<div class="morph-content">
+							<div>
+								<div class="content-style-text">
+									<span class="icon icon-close">Close the dialog</span>
+									<h2>Why should I be a sponsor?</h2>
+									<p>Before I explain why I would like you to think about being a sponsor of this effort, let me explain what I mean by the word, “Sponsor”. 
+A sponsor in “Fourplusfour.org” company is any business entity who is willing to appreciate a child’s effort in some small but significant way by presenting a child a ‘reward’ against some good work the child did on our website or mobile App. 
+The business makes this appreciation of the child’s work in form of strictly “NO CASH” but offering only something of value to the child’s interest in normal upbringing of him(or her). This value can also include items that would or could further the child’s scholastic or vernacular ability. 
+Fourplusfour.org collects no money or any compensation directly or indirectly from the business. The reward from the business entity goes directly to the child on his Mobile App as something the child can present to the business entity – called a store – to collect and use his reward. 
+In this respect, your sponsorship into this activity makes children rich in their skill levels.
+By participating in this activity as a Sponsor, you are also helping increasing of participation of your business entity in the area families for their knowledge about your entity and what your business does. 
+For instance, a child who has earned an ice cream cone will come to your store with a parent or a sibling or a grown up adult of his familiarity. It is very likely that the accompanying individual at the time of bringing the child to your enterprise will see what you offer to his or her liking of your normal price.
+Look up <link>www.fourplusfour.org</link>
+                                <strong>Dilip Kapasi</strong>, Fourplusfour.org Enterprise Excelling Kids from early childhood years
+</p>
+									<p><input id="terms" type="checkbox" /><label for="terms">I accept the terms &amp; conditions.</label></p>
+								</div>
+							</div>
+						</div>
+					</div><!-- morph-button -->
+				<span></span>
+                <span></span>	
+				</div><!-- /form-mockup -->
+			</section>
+			<section class="related">
+				<a href="../registerFormAdvertiser.html" id="register">
+					<h3>Register</h3>
+				</a>
+				<a href="../registerSelectProfile.html" id="back">
+					<h3>Go Back</h3>
+				</a>
+			</section>
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script src="js/uiMorphingButton_fixed.js"></script>
+		<script>
+			(function() {	
+				var docElem = window.document.documentElement, didScroll, scrollPosition;
+
+				// trick to prevent scrolling when opening/closing button
+				function noScrollFn() {
+					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+				}
+
+				function noScroll() {
+					window.removeEventListener( 'scroll', scrollHandler );
+					window.addEventListener( 'scroll', noScrollFn );
+				}
+
+				function scrollFn() {
+					window.addEventListener( 'scroll', scrollHandler );
+				}
+
+				function canScroll() {
+					window.removeEventListener( 'scroll', noScrollFn );
+					scrollFn();
+				}
+
+				function scrollHandler() {
+					if( !didScroll ) {
+						didScroll = true;
+						setTimeout( function() { scrollPage(); }, 60 );
+					}
+				};
+
+				function scrollPage() {
+					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+					didScroll = false;
+				};
+
+				scrollFn();
+
+				var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
+					closeEl : '.icon-close',
+					onBeforeOpen : function() {
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterOpen : function() {
+						// can scroll again
+						canScroll();
+					},
+					onBeforeClose : function() {
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterClose : function() {
+						// can scroll again
+						canScroll();
+					}
+				} );
+
+				document.getElementById( 'terms' ).addEventListener( 'change', function() {
+					UIBtnn.toggle();
+				} );
+			})();
+		</script>
+	</body>
+</html>
