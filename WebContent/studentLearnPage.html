@@ -41,6 +41,7 @@
 						<option name="geography" value="geography" class="icon-earth">Geography</option>
 						<option name="english" value="english" class="icon-spell-check">English</option>
 						<option name="music" value="music" class="icon-music">Music</option>
+						<option name="music" value="computers" class="icon-music">Computers</option>
 					</select>
 				</div>
 			</section>
@@ -60,6 +61,7 @@
             var GEOGRAPHY = "geography";
             var ENGLISH = "english";
             var MUSIC = "music";
+            var COMPUTERS = "computers";
             
             var LEVEL = $.session.get('level');
             
@@ -102,7 +104,11 @@
                                     }
                                     if(selectedValue == MUSIC)
                                     {
-                                        window.location.href = "musicLearn/englishLearnLevel" + LEVEL + ".html";
+                                        window.location.href = "musicLearn/musicLearnLevel" + LEVEL + ".html";
+                                    }
+                                    if(selectedValue == COMPUTERS)
+                                    {
+                                        window.location.href = "computersLearn/computersLearnLevel" + LEVEL + ".html";
                                     }
 								}
 								else

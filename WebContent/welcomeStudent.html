@@ -5,14 +5,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<title>Student Welcome Page</title>
-		<meta name="description" content="Responsive Animated Border Menus with CSS Transitions" />
-		<meta name="keywords" content="navigation, menu, responsive, border, overlay, css transition" />
-		<meta name="author" content="Codrops" />
+		<meta name="description" content="Student Welcome Page" />
+		<meta name="keywords" content="multi-level, menu, navigation, off-canvas, off-screen, mobile, levels, nested, transform" />
+		<meta name="author" content="FourPlusFour.org" />
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/normalize-welcomeStudent.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo-welcomeStudent.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons-welcomeStudent.css" />
-		<link rel="stylesheet" type="text/css" href="css/style-welcomeStudent.css" />
+		<link rel="stylesheet" type="text/css" href="css/component-welcomeStudent.css" />
 		<script src="js/modernizr.custom-welcomeStudent.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/jquery.session.js"></script>
@@ -20,35 +20,65 @@
 	</head>
 	<body>
 		<div class="container">
-			<h3 id="studentName">Test</h3>
-			<header class="codrops-header">
-				<h1>Welcome</h1> 
-				
-				<br/>
-				<p class="codrops-links"><a class="codrops-icon codrops-icon-prev" href="loginChild.html"><span>Logout</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://www.fourplusfour.org"><span>Visit Website</span></a></span></p>
-				<nav class="codrops-demos">
-					<a href="studentLearnPage.html">Learn with us</a>
-					<a href="studentTestPage.html">Test Yourself</a>
+			<!-- Push Wrapper -->
+			<div class="mp-pusher" id="mp-pusher">
+
+				<!-- mp-menu -->
+				<nav id="mp-menu" class="mp-menu">
+					<div class="mp-level">
+						<h2 class="icon icon-world">All Categories</h2>
+						<ul>
+							<li>
+								<a class="icon icon-display" href="#">XPs</a>
+							</li>
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-news" href="#">Your Statistics</a>
+								<div class="mp-level">
+									<h2 class="icon icon-news">Your Statistics</h2>
+									<ul>
+										<li><a href="#">Learning Statistics</a></li>
+										<li><a href="#">Test Statistics</a></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a class="icon icon-shop" href="#">Freebies</a>
+							</li>
+							<li>
+								<a class="icon icon-display" href="loginChild.html">Logout</a>
+							</li>
+						</ul>
+					</div>
 				</nav>
-			</header>
-			<nav id="bt-menu" class="bt-menu">
-				<a href="#" class="bt-menu-trigger"><span>Menu</span></a>
-				<ul>
-					<li><a href="#" class="bt-icon icon-browser">Browser</a></li>
-					<li><a href="#" class="bt-icon icon-email">Email</a></li>
-					<li><a href="#" class="bt-icon icon-bubble">Chat</a></li>
-					<li><a href="#" class="bt-icon icon-calculator">Calculate</a></li>
-					<li><a href="#" class="bt-icon icon-cd">Record</a></li>
-				</ul>
-				<ul>
-					<li><a href="#" class="bt-icon icon-newspaper">News</a></li>
-					<li><a href="#" class="bt-icon icon-file-add">Add</a></li>
-					<li><a href="#" class="bt-icon icon-trash">Delete</a></li>
-				</ul>
-			</nav>
+				<!-- /mp-menu -->
+
+				<div class="scroller"><!-- this is for emulating position fixed of the nav -->
+					<div class="scroller-inner">
+						<!-- Top Navigation -->
+						<div class="codrops-top clearfix">
+							<a class="codrops-icon codrops-icon-prev" href="loginChild.html"><span>Logout</span></a>
+						</div>
+						<header class="codrops-header">
+							<h1>Welcome<span id="studentName">Student</span></h1>
+						</header>
+						<div class="content clearfix">
+							<div class="block block-40 clearfix">
+								<p><a href="#" id="trigger" class="menu-trigger">Access your menu</a></p>
+								<nav class="codrops-demos">
+									<a href="studentLearnPage.html">Learn</a>
+									<a href="studentTestPage.html">Test Yourself</a>
+								</nav>
+							</div>
+						</div>
+					</div><!-- /scroller-inner -->
+				</div><!-- /scroller -->
+
+			</div><!-- /pusher -->
 		</div><!-- /container -->
+		<script src="js/classie-welcomeStudent.js"></script>
+		<script src="js/mlpushmenu-welcomeStudent.js"></script>
+		<script>
+			new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+		</script>
 	</body>
-	<script src="js/classie-welcomeStudent.js"></script>
-	<script src="js/borderMenu-welcomeStudent.js"></script>
 </html>
