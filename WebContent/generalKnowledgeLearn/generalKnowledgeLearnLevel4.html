@@ -4,8 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Learning Level 4 Mathematics</title>
-		<meta name="description" content="Learning Level 4 Mathematics" />
+		<title>Learning Level 4 General Knowledge</title>
+		<meta name="description" content="Learning Level 4 General Knowledge" />
 		<meta name="keywords" content="notification, inspiration, style, effect, growl, javascript" />
 		<meta name="author" content="FourPlusFour.org" />
 		<link rel="shortcut icon" href="../favicon.ico">
@@ -48,8 +48,19 @@
 		<script src="js/notificationFx.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="js/video.js"></script>
+		<script src="../js/jquery.session.js"></script>
 		<script>
-			var svgshape = document.getElementById( 'notification-shape' );
+			
+            var EMAIL = $.session.get('username');
+            var LEVEL = $.session.get('level');
+            var SUBJECT = "gk";
+            
+            var clickCount = 0;
+            
+            var TRUE = "true";
+            var FALSE = "false";
+            
+            var svgshape = document.getElementById( 'notification-shape' );
 			var	s = Snap( svgshape.querySelector( 'svg' ) );
 			var	path = s.select( 'path' );
 			var	pathConfig = {
@@ -58,32 +69,53 @@
 				};
 			$("#button").click(function() 
 			{
-				// simulate loading (for demo purposes only)
-				setTimeout( function() 
-				{
+				clickCount++;
+                
+                if(clickCount >= 1)
+                {
+                    //update learnLevel for student.
+                    $.ajax(
+                    {
+                      url: "http://fast-coast-6607.herokuapp.com/credentialService/updateLearnLevel?email=" + EMAIL + "&level=" + LEVEL + "&subject=" + SUBJECT,
+                      context: document.body
+                    }).done(function(data)
+					{
+						// simulate loading (for demo purposes only)
+						if(data.toString() == TRUE)
+						{
+							setTimeout( function() 
+							{
 
-					path.animate( { 'path' : pathConfig.to }, 300, mina.easeinout );
+								path.animate( { 'path' : pathConfig.to }, 300, mina.easeinout );
 
-					// create the notification
-					var notification = new NotificationFx({
-						wrapper : svgshape,
-						message : '<p><span class="icon icon-trophy"></span> Congratulations! You\'ve gained an XP point and your freebie awaits you. Check out the freebie section in your menu!</p>',
-						layout : 'other',
-						effect : 'cornerexpand',
-						type : 'notice', // notice, warning or error
-						onClose : function() {
-							setTimeout(function() {
-								path.animate( { 'path' : pathConfig.from }, 300, mina.easeinout );
-							}, 200 );
-                            window.location.href = "../studentLearnPage.html";
+								// create the notification
+								var notification = new NotificationFx({
+									wrapper : svgshape,
+									message : '<p><span class="icon icon-trophy"></span> Congratulations! You\'ve gained an XP point and your freebie awaits you. Check out the freebie section in your menu!</p>',
+									layout : 'other',
+									effect : 'cornerexpand',
+									type : 'notice', // notice, warning or error
+									onClose : function() {
+										setTimeout(function() {
+											path.animate( { 'path' : pathConfig.from }, 300, mina.easeinout );
+											window.location.href = '../studentLearnPage.html';
+										}, 200 );
+									}
+								});
+
+								// show the notification
+								notification.show();
+							}, 1200 );    
+							$.session.set('level', (LEVEL + 1));
+						}
+						else
+						{
+							console.log("some error has occurred while updating level table");
+							location.reload(true);
 						}
 					});
-
-					// show the notification
-					notification.show();
-
-				}, 1200 );
-			} );
+                }
+			 } );
 		</script>
 	</body>
 </html>
