@@ -99,17 +99,16 @@
                                             onClose : function() {
                                                 setTimeout(function() {
                                                     path.animate( { 'path' : pathConfig.from }, 300, mina.easeinout );
+													window.location.href = 'computersLearnLevel1.html';
                                                 }, 200 );
                                             }
                                         });
 
                                         // show the notification
                                         notification.show();
-                                        window.location.href = 'computersLearnLevel1.html';
-
                                     }, 1200 );    
                                     $.session.set('level', (LEVEL + 1));
-                                }
+								}
                                 else
                                 {
                                     console.log("some error has occurred while updating level table");
