@@ -4,10 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Notification Styles Inspiration | Other Corner Expand</title>
-		<meta name="description" content="Various styles and effects for unobtrusive notifications on a website" />
+		<title>Learning Level 2 Science</title>
+		<meta name="description" content="Learning Level 2 Science" />
 		<meta name="keywords" content="notification, inspiration, style, effect, growl, javascript" />
-		<meta name="author" content="Codrops" />
+		<meta name="author" content="FourPlusFour.org" />
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
@@ -30,8 +30,7 @@
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/SelectInspiration/"><span>Previous Demo</span></a>
-				<a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19415"><span>Back to the Codrops Article</span></a>
+				<a class="codrops-icon codrops-icon-prev" href="../welcomeStudent.html"><span>Access your Menu</span></a>
 			</div>
 			<div class="main clearfix">
 				<figure>
@@ -42,15 +41,26 @@
 			<!-- Related demos -->
 			<section class="related" id="button">
 				
-				<a><h3>Button</h3></a>
+				<a><h3>Watched? Click Here!</h3></a>
 			</section>
 		</div><!-- /container -->
 		<script src="js/classie.js"></script>
 		<script src="js/notificationFx.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="js/video.js"></script>
+		<script src="../js/jquery.session.js"></script>
 		<script>
-			var svgshape = document.getElementById( 'notification-shape' );
+			
+            var EMAIL = $.session.get('username');
+            var LEVEL = $.session.get('level');
+            var SUBJECT = "science";
+            
+            var clickCount = 0;
+            
+            var TRUE = "true";
+            var FALSE = "false";
+            
+            var svgshape = document.getElementById( 'notification-shape' );
 			var	s = Snap( svgshape.querySelector( 'svg' ) );
 			var	path = s.select( 'path' );
 			var	pathConfig = {
@@ -59,31 +69,53 @@
 				};
 			$("#button").click(function() 
 			{
-				// simulate loading (for demo purposes only)
-				setTimeout( function() 
-				{
+				clickCount++;
+                
+                if(clickCount >= 1)
+                {
+                    //update learnLevel for student.
+                    $.ajax(
+                    {
+                      url: "http://fast-coast-6607.herokuapp.com/credentialService/updateLearnLevel?email=" + EMAIL + "&level=" + LEVEL + "&subject=" + SUBJECT,
+                      context: document.body
+                    }).done(function(data)
+					{
+						// simulate loading (for demo purposes only)
+						if(data.toString() == TRUE)
+						{
+							setTimeout( function() 
+							{
 
-					path.animate( { 'path' : pathConfig.to }, 300, mina.easeinout );
+								path.animate( { 'path' : pathConfig.to }, 300, mina.easeinout );
 
-					// create the notification
-					var notification = new NotificationFx({
-						wrapper : svgshape,
-						message : '<p><span class="icon icon-trophy"></span> Congratulations! You\'ve gained an XP point and your freebie awaits you. Check out the freebie section in your menu!</p>',
-						layout : 'other',
-						effect : 'cornerexpand',
-						type : 'notice', // notice, warning or error
-						onClose : function() {
-							setTimeout(function() {
-								path.animate( { 'path' : pathConfig.from }, 300, mina.easeinout );
-							}, 200 );
+								// create the notification
+								var notification = new NotificationFx({
+									wrapper : svgshape,
+									message : '<p><span class="icon icon-trophy"></span> Congratulations! You\'ve gained an XP point and your freebie awaits you. Check out the freebie section in your menu!</p>',
+									layout : 'other',
+									effect : 'cornerexpand',
+									type : 'notice', // notice, warning or error
+									onClose : function() {
+										setTimeout(function() {
+											path.animate( { 'path' : pathConfig.from }, 300, mina.easeinout );
+											window.location.href = 'scienceLearnLevel2.html';
+										}, 200 );
+									}
+								});
+
+								// show the notification
+								notification.show();
+							}, 1200 );    
+							$.session.set('level', (LEVEL + 1));
+						}
+						else
+						{
+							console.log("some error has occurred while updating level table");
+							location.reload(true);
 						}
 					});
-
-					// show the notification
-					notification.show();
-
-				}, 1200 );
-			} );
+                }
+			 } );
 		</script>
 	</body>
 </html>
