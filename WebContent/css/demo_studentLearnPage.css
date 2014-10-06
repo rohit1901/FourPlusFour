@@ -83,6 +83,12 @@ a {
 	min-width: 300px;
 }
 
+.fright {
+	float: right;
+	width: 49%;
+	min-width: 300px;
+}
+
 .main p {
 	color: #000;
 	padding: 20px 30px 0px 0px;

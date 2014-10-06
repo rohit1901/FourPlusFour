@@ -9,11 +9,19 @@
 		<meta name="keywords" content="drop-down, select, jquery, plugin, fallback, transition, transform, 3d, css3" />
 		<meta name="author" content="FourPlusFour.org" />
 		<link rel="shortcut icon" href="../favicon.ico"> 
+        
 		<link rel="stylesheet" type="text/css" href="css/style2_studentLearnPage.css" />
-		<script src="js/modernizr.custom.63321_studentLearnPage.js"></script>
+        <script src="js/modernizr.custom.63321_studentLearnPage.js"></script>
+        
         <link rel="stylesheet" type="text/css" href="css/ns-default-alert.css" />
 		<link rel="stylesheet" type="text/css" href="css/ns-style-growl-alert.css" />
+        <link rel="stylesheet" type="text/css" href="css/normalize-checkboxes.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo-checkboxes.css" />
+		<link rel="stylesheet" type="text/css" href="css/component-checkboxes.css" />
+<!--
+		<script src="js/modernizr.custom-checkboxes.js"></script>
 		<script src="js/modernizr.custom-alert.js"></script>
+-->
 	</head>
 	<body>
 		<div class="container">	
@@ -26,12 +34,19 @@
 				<h1>Learn with us</h1>
 			</header>
 			<section class="main clearfix">
-				<div class="fleft">
-					<p>Select a subject from the drop down and click on the LEARN button below.</p>
-					<p>
-						<button class="btn btn-2 btn-2a" id="learn">Learn</button>
-					</p>
-				</div>
+                <p>Select a subject and a level</p>
+				<section>
+                    <form class="ac-custom ac-radio ac-fill" autocomplete="off">
+                        <h2>Level</h2>
+                        <ul>
+                            <li><input id="zero-r1" name="r1" type="radio" value="0"><label for="zero">ONE</label></li>
+                            <li><input id="one-r1" name="r1" type="radio" value="1"><label for="one">TWO</label></li>
+                            <li><input id="two-r1" name="r1" type="radio" value="2"><label for="two">THREE</label></li>
+                            <li><input id="three-r1" name="r1" type="radio" value="3"><label for="three">FOUR</label></li>
+                            <li><input id="four-r1" name="r1" type="radio" value="4"><label for="four">FIVE</label></li>
+                        </ul>
+                    </form>
+                </section>
 				<div class="fleft">
 					<select id="cd-dropdown" class="cd-select">
 						<option value="-1" selected>Choose a Subject to learn</option>
@@ -41,19 +56,28 @@
 						<option name="geography" value="geography" class="icon-earth">Geography</option>
 						<option name="english" value="english" class="icon-spell-check">English</option>
 						<option name="music" value="music" class="icon-music">Music</option>
-						<option name="music" value="computers" class="icon-music">Computers</option>
+						<option name="computers" value="computers" class="icon-music">Computers</option>
 					</select>
 				</div>
-			</section>
+                <div class="fleft">
+					<p>
+						<button class="btn btn-2 btn-2a" id="learn">Learn</button>
+					</p>
+				</div>
+            </section>
 		</div>
+        
         <script src="js/classie-alert.js"></script>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script src="js/svgcheckbx-checkboxes.js"></script>
+		<script src="js/notificationFx-alert.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="js/jquery.dropdown_studentLearnPage.js"></script>
-        <script src="js/notificationFx-alert.js"></script>
         <script type="text/javascript" src="js/jquery.session.js"></script>
 		<script type="text/javascript">
 			
 			var selectedValue;
+            var selectedLevel;
+            var LEVEL;
             
             var GK = "general knowledge";
             var MATHS = "mathematics";
@@ -62,10 +86,8 @@
             var ENGLISH = "english";
             var MUSIC = "music";
             var COMPUTERS = "computers";
-            
-            var LEVEL = $.session.get('level');
-            
-			$( function() {
+                        
+            $( function() {
 				
 				$( '#cd-dropdown' ).dropdown( {
 					gutter : 6,
@@ -78,11 +100,14 @@
 				} );
 
 			});
-			$("#learn").click(function()
+            
+            $("#learn").click(function()
 							{
-								if(selectedValue != undefined)
+								if(selectedValue != undefined && $("input[name=r1]:checked").val() != undefined)
 								{
-									if(selectedValue == GK)
+									LEVEL = $("input[name=r1]:checked").val() ;
+                                    $.session.set('level', LEVEL);
+                                    if(selectedValue == GK)
                                     {
                                         window.location.href = "generalKnowledgeLearn/generalKnowledgeLearnLevel" + LEVEL + ".html";
                                     }
@@ -114,7 +139,7 @@
 								else
 								{
 									var notification = new NotificationFx({
-                                        message : '<p>Please select a subject to learn.\nThis page will reload automatically!</p>',
+                                        message : '<p>Please select a subject and level to learn.\nThis page will reload automatically!</p>',
                                         layout : 'growl',
                                         effect : 'slide',
                                         type : 'notice', // notice, warning or error

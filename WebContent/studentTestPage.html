@@ -9,8 +9,16 @@
 		<meta name="keywords" content="drop-down, select, jquery, plugin, fallback, transition, transform, 3d, css3" />
 		<meta name="author" content="FourPlusFour.org" />
 		<link rel="shortcut icon" href="../favicon.ico"> 
+        
 		<link rel="stylesheet" type="text/css" href="css/style2_studentLearnPage.css" />
 		<script src="js/modernizr.custom.63321_studentLearnPage.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="css/ns-default-alert.css" />
+		<link rel="stylesheet" type="text/css" href="css/ns-style-growl-alert.css" />
+        <link rel="stylesheet" type="text/css" href="css/normalize-checkboxes.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo-checkboxes.css" />
+		<link rel="stylesheet" type="text/css" href="css/component-checkboxes.css" />
+		
 	</head>
 	<body>
 		<div class="container">	
@@ -30,19 +38,24 @@
 				</div>
 				<div class="fleft">
 					<select id="cd-dropdown" class="cd-select">
-						<option value="-1" selected>Choose a test subject</option>
-						<option name="history" value="history" class="icon-history">History</option>
+						<option value="-1" selected>Choose a Subject to learn</option>
+						<option name="general knowledge" value="general knowledge" class="icon-history">General Knowledge</option>
 						<option name="mathematics" value="mathematics" class="icon-calculate">Mathematics</option>
 						<option name="science" value="science" class="icon-lab">Science</option>
 						<option name="geography" value="geography" class="icon-earth">Geography</option>
 						<option name="english" value="english" class="icon-spell-check">English</option>
 						<option name="music" value="music" class="icon-music">Music</option>
+						<option name="computers" value="computers" class="icon-music">Computers</option>
 					</select>
 				</div>
 			</section>
 		</div>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="js/classie-alert.js"></script>
+        <script src="js/svgcheckbx-checkboxes.js"></script>
+		<script src="js/notificationFx-alert.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="js/jquery.dropdown_studentLearnPage.js"></script>
+        <script type="text/javascript" src="js/jquery.session.js"></script>
 		<script type="text/javascript">
 			
 			var selectedValue;
