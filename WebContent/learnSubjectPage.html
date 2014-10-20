@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Subject Learning Page</title>
+		<meta name="description" content="Student Learning Page" />
+		<meta name="keywords" content="drop-down, select, jquery, plugin, fallback, transition, transform, 3d, css3" />
+		<meta name="author" content="FourPlusFour.org" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/normalize-studentLearnPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo-studentLearnPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/icons-studentLearnPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/component-studentLearnPage.css" />
+		<script src="js/modernizr.custom-studentLearnPage.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/ns-default-alert.css" />
+		<link rel="stylesheet" type="text/css" href="css/ns-style-growl-alert.css" />
+		<script src="js/modernizr.custom-alert.js"></script>
+	</head>
+	<body>
+		<div id="st-container" class="st-container">
+			
+			<!-- content push wrapper -->
+			<div class="st-pusher">
+				<div class="st-content"><!-- this is the wrapper for the content -->
+					<div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+						<!-- Top Navigation -->
+						<div class="codrops-top clearfix">
+							<a class="codrops-icon codrops-icon-prev" href="studentLearnPage.html"><span>Choose another subject or level</span></a>
+							<span class="right"><a class="codrops-icon codrops-icon-drop" href="index.html"><span>Logout</span></a></span>
+						</div>
+						<header class="codrops-header">
+							<h1 id="subject">LEARN WITH US</h1>
+                            <h2 id="level"></h2>
+						</header>
+						<div class="main clearfix">
+							<div id="st-trigger-effects" class="column">
+								<button data-effect="st-effect-1" id="playVideoButton">Click here to view the tutorial!</button>
+								<br>
+								<p>After you've done with this tutorial, click on the button below for your next tutorial.</p>
+								<button id="nextLevelButton">Next Level</button>
+							</div>
+							
+						</div><!-- /main -->
+					</div><!-- /st-content-inner -->
+				</div><!-- /st-content -->
+			</div><!-- /st-pusher -->
+		</div><!-- /st-container -->
+		<script src="js/classie-studentLearnPage.js"></script>
+		<script src="js/sidebarEffects-studentLearnPage.js"></script>
+        <script src="js/notificationFx-alert.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.session.js"></script>
+		<script type="text/javascript">
+			
+			
+            var LEVEL = $.session.get('level');
+			var SUBJECT = $.session.get('subject');
+            
+            console.log("Level -- " + LEVEL + "\nSubject -- " + SUBJECT);
+            
+            var GK = "general knowledge";
+            var MATHS = "mathematics";
+            var SCIENCE = "science";
+            var GEOGRAPHY = "geography";
+            var ENGLISH = "english";
+            var MUSIC = "music";
+            var COMPUTERS = "computers";
+            
+            $(document).ready(function()
+            {
+                setLevelInUI(LEVEL);
+                setSubjectInUI(SUBJECT);
+                
+                $("#nextLevelButton").click(function()
+                {
+                    $.session.set('level', parseLevel(LEVEL));
+
+                    LEVEL = $.session.get('level');
+
+                    $.session.set('subject',SUBJECT);
+
+                    SUBJECT = $.session.get('subject');
+
+                    setLevelInUI(LEVEL);
+                    setSubjectInUI(SUBJECT);
+
+                });
+                
+                $("#playVideoButton").click(function()
+                {
+                    var notification = new NotificationFx({
+                        message : "<p>We haven't posted any content as of now! Stay tuned!</p>",
+                        layout : 'growl',
+                        effect : 'slide',
+                        type : 'notice', // notice, warning or error
+                        onClose : function() {
+                            //window.location.href = "welcomeStudent.html";
+                        }
+                    });
+
+                    // show the notification
+                    notification.show();    
+                });
+            
+            });
+            
+			
+			
+            function setLevelInUI(level)
+            {
+                $("#level").text(level);
+            }
+            
+            function setSubjectInUI(subject)
+            {
+                $("#subject").text(subject);
+            }
+            
+            function parseLevel(LEVEL)
+            {
+                var newLevelArray = LEVEL.split("level");
+                var newLevel = parseInt(newLevelArray[1], 10) + 1;
+                return ("level" + newLevel);
+                
+            }
+        </script>
+	</body>
+</html>

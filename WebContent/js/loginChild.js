@@ -5,7 +5,9 @@ $( document ).ready(function()
     var level;
     $("#studentLoginForm").submit(function(e)
 	{
-		var username = $("#username").val();
+		$("#loginStudent").prop('disabled', true);
+        
+        var username = $("#username").val();
         var password = $("#password").val();
         e.preventDefault();
         

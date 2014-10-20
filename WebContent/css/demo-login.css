@@ -1,5 +1,15 @@
 /* General Demo Style */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
 
 html { height: 100%; }
 
@@ -68,39 +78,40 @@ a {
 }
 
 /* Header Style */
-.codrops-top {
-	line-height: 24px;
-	font-size: 11px;
-	background: #fff;
-	background: rgba(255, 255, 255, 0.8);
-	text-transform: uppercase;
-	z-index: 9999;
-	position: relative;
-	font-family: Cambria, Georgia, serif;
-	box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
+
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: " ";
 }
+
+.clearfix:after {
+	clear: both;
+}
+
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 
-.codrops-top:before,
-.codrops-top:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.codrops-top:after {
-    clear: both
+/* To Navigation Style */
+.codrops-top {
+	width: 100%;
+	text-transform: uppercase;
+	font-size: 0.69em;
+	line-height: 2.2;
+	font-weight: 400;
+	background: rgba(255,255,255,0.3);
 }
 
 .codrops-top a {
-	padding: 0px 10px;
-	letter-spacing: 1px;
-	color: #333;
 	display: inline-block;
+	padding: 0 1em;
+	text-decoration: none;
+	letter-spacing: 0.1em;
 }
 
 .codrops-top a:hover {
-	background: rgba(255,255,255,0.6);
+	background: rgba(255,255,255,0.4);
+	color: #333;
 }
 
 .codrops-top span.right {
@@ -108,9 +119,31 @@ a {
 }
 
 .codrops-top span.right a {
-	float: left;
 	display: block;
+	float: left;
 }
+
+.codrops-icon:before {
+	margin: 0 4px;
+	text-transform: none;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-family: 'codropsicons';
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+.codrops-icon-drop:before {
+	content: "\e001";
+}
+
+.codrops-icon-prev:before {
+	content: "\e004";
+}
+
+
 
 /* Demo Buttons Style */
 .codrops-demos {
@@ -165,4 +198,33 @@ a {
 	font-weight: bold;
 	text-align: center;
 	padding: 5px 0;
+}
+
+
+@media screen and (max-width: 69em) {
+	.block {
+		float: none;
+		width: 100% !important;
+		padding: 1em;
+	}
+}
+
+@media screen and (max-width: 25em) {
+
+	body {
+		font-size: 80%;
+	}
+
+	.codrops-icon span {
+		display: none;
+	}
+    
+    .codrops-header {
+		font-size: 80%;
+	}
+
+	.codrops-top {
+		font-size: 120%;
+	}
+
 }

@@ -14,6 +14,9 @@
 		<link rel="stylesheet" type="text/css" href="css/icons-welcomeStudent.css" />
 		<link rel="stylesheet" type="text/css" href="css/component-welcomeStudent.css" />
 		<script src="js/modernizr.custom-welcomeStudent.js"></script>
+        <!--<link rel="stylesheet" type="text/css" href="css/ns-default-alert.css" />
+		<link rel="stylesheet" type="text/css" href="css/ns-style-growl-alert.css" />
+		<script src="js/modernizr.custom-alert.js"></script>-->
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/jquery.session.js"></script>
 		<script src="js/welcomeStudent.js"></script>
@@ -56,7 +59,8 @@
 					<div class="scroller-inner">
 						<!-- Top Navigation -->
 						<div class="codrops-top clearfix">
-							<a class="codrops-icon codrops-icon-prev" href="loginChild.html"><span>Logout</span></a>
+							<a class="codrops-icon codrops-icon-prev" href="loginChild.html"><span></span></a>
+							<span class="right"><a class="codrops-icon codrops-icon-drop" href="index.html"><span>Logout</span></a></span>
 						</div>
 						<header class="codrops-header">
 							<h1>Welcome<span id="studentName">Student</span></h1>
@@ -64,9 +68,12 @@
 						<div class="content clearfix">
 							<div class="block block-40 clearfix">
 								<p><a href="#" id="trigger" class="menu-trigger">Access your menu</a></p>
-								<nav class="codrops-demos">
-									<a href="studentLearnPage.html">Learn</a>
-									<a href="studentTestPage.html">Test Yourself</a>
+                                <br>
+                                <br>
+								<nav class="main clearfix">
+									
+                                    <button id="learnButton">Learn</button>
+                                    <button id="testButton">Test Yourself</button>
 								</nav>
 							</div>
 						</div>
@@ -76,9 +83,11 @@
 			</div><!-- /pusher -->
 		</div><!-- /container -->
 		<script src="js/classie-welcomeStudent.js"></script>
-		<script src="js/mlpushmenu-welcomeStudent.js"></script>
-		<script>
+        <script src="js/mlpushmenu-welcomeStudent.js"></script>
+        <!--<script src="js/notificationFx-alert.js"></script>-->
+        <script>
 			new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+            
 		</script>
 	</body>
 </html>

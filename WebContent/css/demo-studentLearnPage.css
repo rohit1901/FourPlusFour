@@ -11,20 +11,20 @@
 }
 
 body {
-	background: #34495e;
-	color: #fff;
+	background: #444;
+	color: #48a770;
 	font-weight: 300;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 }
 
 a {
 	text-decoration: none;
-	color: #f7f7f7;
+	color: #48a770;
 	outline: none;
 }
 
 a:hover, a:focus {
-	color: #fff;
+	color: #2c774b;
 	outline: none;
 }
 
@@ -45,9 +45,8 @@ a:hover, a:focus {
 }
 
 .codrops-header {
-	margin: 0 auto;
-	padding: 2em;
-	background: rgba(0,0,0,0.01);
+	margin: 0 auto 3em;
+	padding: 3em;
 	text-align: center;
 }
 
@@ -62,7 +61,7 @@ a:hover, a:focus {
 	display: block;
 	padding: 0 0 0.6em 0.1em;
 	font-size: 60%;
-	opacity: 0.7;
+	color: #aca89a;
 }
 
 /* To Navigation Style */
@@ -116,81 +115,37 @@ a:hover, a:focus {
 	content: "\e004";
 }
 
-/* Demo Buttons Style */
-.codrops-demos {
-	padding-top: 1em;
-	font-size: 1.1em;
-}
-
-.codrops-demos a {
-	display: block;
-	float: left;
-	clear: both;
-	margin: 0.5em 0.5em 0.5em 1.9em;
-	padding: 1em 1.1em;
-	width: 280px;
-	outline: none;
-	color: #fff;
-	background: #336ca6;
-	text-align: center;
-	text-decoration: none;
-	font-weight: 700;
-}
-
-.codrops-demos a:hover,
-.codrops-demos a.current-demo,
-.codrops-demos a.current-demo:hover {
-	opacity: 0.6;
-}
-
-.content {
-	padding: 4em 2em;
-	max-width: 1200px;
+.main {
+	max-width: 69em;
 	margin: 0 auto;
 }
 
-.block {
+.column {
 	float: left;
-	padding: 1em 3em;
+	width: 50%;
+	padding: 0 2em;
+	min-height: 300px;
+	position: relative;
+	text-align: right;
 }
 
-.block-40 {
-	width: 40%;
+.column:nth-child(2) {
+	box-shadow: -1px 0 0 rgba(0,0,0,0.1);
+	text-align: left;
 }
 
-.block-60 {
-	width: 60%;
-}
-
-.block p {
+.column p {
+	font-weight: 300;
+	font-size: 2em;
+	padding: 0 0 0.5em;
 	margin: 0;
-	padding: 0 1em 0.6em;
-	font-size: 1.8em;
 	line-height: 1.5;
-}
-
-.info {
-	text-align: center;
-	font-size: 1.5em;
-	margin-top: 3em;
-	clear: both;
-	padding-top: 3em;
-	color: rgba(255,255,255,0.5);
-}
-
-.info a {
-	font-weight: 700;
-	font-size: 0.9em;
-}
-
-.info a:hover {
-	color: #336ca6;
 }
 
 button {
 	border: none;
-	padding: 1.6em 1.2em;
-	background: #336ca6;
+	padding: 0.6em 1.2em;
+	background: #388a5a;
 	color: #fff;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	font-size: 1em;
@@ -198,43 +153,60 @@ button {
 	text-transform: uppercase;
 	cursor: pointer;
 	display: inline-block;
-	margin: 5px 2px;
-	border-radius: 5px;
+	margin: 3px 2px;
+	border-radius: 2px;
 }
 
 button:hover {
-	background: #336ca6;
+	background: #2c774b;
 }
 
-.main {
-	max-width: 69em;
-	margin: 0 auto;
+.info {
+	text-align: center;
+	font-size: 1.5em;
+	margin-top: 3em;
+	clear: both;
+	padding: 3em 0;
+	opacity: 0.7;
+	color: #aca89a;
 }
 
-@media screen and (max-width: 69em) {
-	.block {
-		float: none;
-		width: 100% !important;
-		padding: 1em;
+.info a {
+	font-weight: 700;
+	font-size: 0.9em;
+}
+
+@media screen and (max-width: 46.0625em) {
+	.column {
+		width: 100%;
+		min-width: auto;
+		min-height: auto;
+		padding: 2em; 
+		text-align: center;
+	}
+
+	.column p {
+		font-size: 1.5em;
+	}
+
+	.column:nth-child(2) {
+		text-align: center;
+		box-shadow: 0 -1px 0 rgba(0,0,0,0.1);
 	}
 }
 
 @media screen and (max-width: 25em) {
 
-	body {
-		font-size: 90%;
-	}
-
-	.codrops-icon span {
-		display: none;
-	}
-    
-    .codrops-header {
+	.codrops-header {
 		font-size: 80%;
 	}
 
 	.codrops-top {
 		font-size: 120%;
+	}
+
+	.codrops-icon span {
+		display: none;
 	}
 
 }

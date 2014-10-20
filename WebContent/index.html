@@ -19,7 +19,8 @@
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-drop" href="registerSelectProfile.html"><span>Register Now</span></a>
+				<a class="codrops-icon codrops-icon-prev" href="#" id="reset"><span>Reset Options</span></a>
+                <span class="right"><a class="codrops-icon codrops-icon-drop" href="www.fourplusfour.org"><span>Visit Website</span></a></span>
 			</div>
 			<div id="boxgallery" class="boxgallery" data-effect="effect-1">
 				<div class="panel"><img src="img/open_screen_bg.jpg" alt="Image 1"/></div>
@@ -29,18 +30,63 @@
 			</div>
 			<header class="codrops-header">
 				<h1>Four Plus Four.org <span>Let's make learning fun..</a></span></h1>
-				<nav class="codrops-demos">
-					<h4>LOGIN AS</h4>
-					<a class="current-demo" href="loginChild.html">Student</a>
-					<a href="loginAdvertiser.html">Advertiser</a>
-					<a href="loginSponsor.html">Sponsor</a>
+				<nav class="codrops-demos" id="action">
+                    <a href="#" id="login">LOGIN</a>
+					<a href="#" id="register">JOIN US</a>
+                    <h4 id="loginAs">LOGIN AS</h4>
+                    <a class="current-demo" href="loginChild.html" id="loginChild">Student</a>
+                    <a href="loginAdvertiser.html" id="loginAdvertiser">Advertiser</a>
+                    <a href="loginSponsor.html" id="loginSponsor">Sponsor</a>
+					
 				</nav>
 			</header>
 		</div><!-- /container -->
 		<script src="js/classie.js"></script>
 		<script src="js/boxesFx.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script>
 			new BoxesFx( document.getElementById( 'boxgallery' ) );
+            
+            $("#loginAs").hide();
+            $("#loginChild").hide();
+            $("#loginAdvertiser").hide();
+            $("#loginSponsor").hide();
+            
+            $("#reset").hide();
+            
+            $("#login").click(function(event)
+            {
+                event.preventDefault();
+                
+                $("#reset").show();
+                
+                $("#login").hide();
+                $("#register").hide();
+                
+                $("#loginAs").show();
+                $("#loginChild").show();
+                $("#loginAdvertiser").show();
+                $("#loginSponsor").show();
+            });
+            
+            $("#register").click(function(event)
+            {
+                window.location.href = "registerSelectProfile.html"   ;
+            });
+            
+            $("#reset").click(function(event)
+            {
+                $("#login").show();
+                $("#register").show();
+                
+                $("#reset").hide();
+                
+                $("#loginAs").hide();
+                $("#loginChild").hide();
+                $("#loginAdvertiser").hide();
+                $("#loginSponsor").hide();
+            });
+            
 		</script>
 	</body>
 </html>

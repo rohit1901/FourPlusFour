@@ -6,7 +6,9 @@ $( document ).ready(function()
     
 	$("#sponsorLoginForm").submit(function(e)
 	{
-		var username = $("#username").val();
+		$("#loginSponsor").prop('disabled', true);
+        
+        var username = $("#username").val();
         var password = $("#password").val();
         e.preventDefault();
         

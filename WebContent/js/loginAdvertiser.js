@@ -4,7 +4,9 @@ $( document ).ready(function()
     var type = "advertiser";
     $("#advertiserLoginForm").submit(function(e)
 	{
-		var username = $("#username").val();
+		$("#loginAdvertiser").prop('disabled', true);
+        
+        var username = $("#username").val();
         var password = $("#password").val();
         e.preventDefault();
         

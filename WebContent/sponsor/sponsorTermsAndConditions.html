@@ -23,7 +23,9 @@
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="www.fourplusfour.org"><span></span></a></span>
 			</div>
 			<section>
+                <header class="codrops-header">
 				<p>Click the button below to read the <strong>Terms &amp; Conditions</strong> of a sponsor</p>
+                </header>
 				<div class="mockup-content">
 					<span></span><span></span><span></span><span></span>
 					<div class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
@@ -53,11 +55,11 @@ Look up <link>www.fourplusfour.org</link>
 				</div><!-- /form-mockup -->
 			</section>
 			<section class="related">
-				<a href="../registerFormAdvertiser.html" id="register">
-					<h3>Register</h3>
+				<a href="#" id="register">
+					
 				</a>
-				<a href="../registerSelectProfile.html" id="back">
-					<h3>Go Back</h3>
+				<a href="#" id="back">
+					
 				</a>
 			</section>
 		</div><!-- /container -->
@@ -122,6 +124,7 @@ Look up <link>www.fourplusfour.org</link>
 
 				document.getElementById( 'terms' ).addEventListener( 'change', function() {
 					UIBtnn.toggle();
+                    window.location.href = "../registerFormSponsor.html";
 				} );
 			})();
 		</script>
