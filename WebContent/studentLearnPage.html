@@ -145,6 +145,10 @@
 			
 			$("#learnButton").click(function()
 			{
+				$("#levelButton").prop('disabled', true);
+				$("#subjectButton").prop('disabled', true);
+				$("#learnButton").prop('disabled', true);
+				
 				if(selectedLevel == "No Level" || selectedSubject == "No Subject")
 				{
 					//alert("You'll have to select a level and a subject to start learning!");
@@ -154,7 +158,9 @@
                         effect : 'slide',
                         type : 'notice', // notice, warning or error
                         onClose : function() {
-                            //window.location.href = "welcomeStudent.html";
+                            $("#levelButton").prop('disabled', false);
+							$("#subjectButton").prop('disabled', false);
+							$("#learnButton").prop('disabled', false);
                         }
                     });
 
@@ -173,6 +179,8 @@
 					window.location.href = "learnSubjectPage.html";
 				}
 			});
+			
+			
         </script>
 	</body>
 </html>

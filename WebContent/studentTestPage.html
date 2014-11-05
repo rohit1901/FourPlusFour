@@ -1,111 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<title>Student Test Page</title>
-		<meta name="description" content="Student Test Page" />
+		<meta name="description" content="Student LearTestning Page" />
 		<meta name="keywords" content="drop-down, select, jquery, plugin, fallback, transition, transform, 3d, css3" />
 		<meta name="author" content="FourPlusFour.org" />
 		<link rel="shortcut icon" href="../favicon.ico"> 
-        
-		<link rel="stylesheet" type="text/css" href="css/style2_studentLearnPage.css" />
-		<script src="js/modernizr.custom.63321_studentLearnPage.js"></script>
-        
+		<link rel="stylesheet" type="text/css" href="css/normalize-studentLearnPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo-studentLearnPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/icons-studentLearnPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/component-studentLearnPage.css" />
+        <script src="js/modernizr.custom-studentLearnPage.js"></script>
         <link rel="stylesheet" type="text/css" href="css/ns-default-alert.css" />
 		<link rel="stylesheet" type="text/css" href="css/ns-style-growl-alert.css" />
-        <link rel="stylesheet" type="text/css" href="css/normalize-checkboxes.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo-checkboxes.css" />
-		<link rel="stylesheet" type="text/css" href="css/component-checkboxes.css" />
-		
+		<script src="js/modernizr.custom-alert.js"></script>
 	</head>
 	<body>
-		<div class="container">	
-			<!-- Codrops top bar -->
-			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="welcomeStudent.html"><span> &laquo; Access your MENU?</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="index.html"><span>Logout</span></a></span>
-			</div>
-			<header class="clearfix">
-				<h1>Choose the Subject you want to take a test for today</h1>	
-			</header><section class="main clearfix">
-				<div class="fleft">
-					<p>Select a subject from the drop down and click on the Test button below.</p>
-					<p>
-						<button class="btn btn-2 btn-2a" id="learn">Take the Test</button>
-					</p>
-				</div>
-				<div class="fleft">
-					<select id="cd-dropdown" class="cd-select">
-						<option value="-1" selected>Choose a Subject to learn</option>
-						<option name="general knowledge" value="general knowledge" class="icon-history">General Knowledge</option>
-						<option name="mathematics" value="mathematics" class="icon-calculate">Mathematics</option>
-						<option name="science" value="science" class="icon-lab">Science</option>
-						<option name="geography" value="geography" class="icon-earth">Geography</option>
-						<option name="english" value="english" class="icon-spell-check">English</option>
-						<option name="music" value="music" class="icon-music">Music</option>
-						<option name="computers" value="computers" class="icon-music">Computers</option>
-					</select>
-				</div>
-			</section>
-		</div>
-		<script src="js/classie-alert.js"></script>
-        <script src="js/svgcheckbx-checkboxes.js"></script>
-		<script src="js/notificationFx-alert.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-		<script type="text/javascript" src="js/jquery.dropdown_studentLearnPage.js"></script>
-        <script type="text/javascript" src="js/jquery.session.js"></script>
+		<div id="st-container" class="st-container">
+			<!-- 	
+				example menus 
+				these menus will be on top of the push wrapper
+			-->
+			<nav class="st-menu st-effect-1" id="menu-1">
+				<h2 class="icon icon-lab">Level</h2>
+				<ul>
+					<li><a class="icon icon-data" href="#" id="level0">Level 0 - Grade 1</a></li>
+					<li><a class="icon icon-location" href="#" id="level1">Level 1 - Grade 2</a></li>
+					<li><a class="icon icon-study" href="#" id="level2">Level 2 - Grade 3</a></li>
+					<li><a class="icon icon-photo" href="#" id="level3">Level 3 - Grade 4</a></li>
+					<li><a class="icon icon-wallet" href="#" id="level4">Level 4 - Grade 5</a></li>
+				</ul>
+			</nav>
+			
+			<nav class="st-menu st-effect-2" id="menu-2">
+				<h2 class="icon icon-stack">Sidebar</h2>
+				<ul>
+					<li><a class="icon icon-data" href="#" id="mathematics">Mathematics</a></li>
+					<li><a class="icon icon-location" href="#" id="english">English</a></li>
+					<li><a class="icon icon-study" href="#" id="geography">Geography</a></li>
+					<li><a class="icon icon-photo" href="#" id="generalknowledge">General Knowledge</a></li>
+					<li><a class="icon icon-wallet" href="#" id="computers">Music</a></li>
+					<li><a class="icon icon-wallet" href="#" id="science">Science</a></li>
+					<li><a class="icon icon-wallet" href="#" id="computers">Computers</a></li>
+				</ul>
+			</nav>
+
+			<!-- content push wrapper -->
+			<div class="st-pusher">
+				<div class="st-content"><!-- this is the wrapper for the content -->
+					<div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+						<!-- Top Navigation -->
+						<div class="codrops-top clearfix">
+							<a class="codrops-icon codrops-icon-prev" href="welcomeStudent.html"><span>Access your MENU?</span></a>
+							<span class="right"><a class="codrops-icon codrops-icon-drop" href="index.html"><span>Logout</span></a></span>
+						</div>
+						<header class="codrops-header">
+							<h1>TEST YOUR SKILLS <span>Select a subject and a level</span></h1>
+						</header>
+						<div class="main clearfix">
+							<div id="st-trigger-effects" class="column">
+								<button data-effect="st-effect-1" id="levelButton">Choose a Level</button>
+								<button data-effect="st-effect-2" id="subjectButton">Choose a Subject</button>
+								<p>After choosing Level and Subject, click on the TEST YOURSELF button below.</p>
+								<button id="testButton">TEST YOURSELF</button>
+							</div>
+							
+						</div><!-- /main -->
+					</div><!-- /st-content-inner -->
+				</div><!-- /st-content -->
+			</div><!-- /st-pusher -->
+		</div><!-- /st-container -->
+		<script src="js/classie-studentLearnPage.js"></script>
+        <script src="js/sidebarEffects-studentLearnPage.js"></script>
+        <script src="js/notificationFx-alert.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.session.js"></script>
 		<script type="text/javascript">
 			
-			var selectedValue;
-			$( function() {
-				
-				$( '#cd-dropdown' ).dropdown( {
-					gutter : 6,
-					delay : 100,
-					random : true,
-					onOptionSelect : function( opt ) 
-					{
-						selectedValue = opt.data( 'value' );
-					}
-				} );
-
+			var selectedSubject = "No Subject";
+            var selectedLevel = "No Level";
+            var LEVEL;
+			var SUBJECT;
+            
+            var GK = "general knowledge";
+            var MATHS = "mathematics";
+            var SCIENCE = "science";
+            var GEOGRAPHY = "geography";
+            var ENGLISH = "english";
+            var MUSIC = "music";
+            var COMPUTERS = "computers";
+			
+			$("#mathematics").click(function()
+			{
+				selectedSubject = MATHS;
+			});            
+			$("#english").click(function()
+			{
+				selectedSubject = ENGLISH;
 			});
-			$("#learn").click(function()
-							{
-								if(selectedValue != undefined)
-								{
-									if(selectedValue != 'history')
-									{
-										window.location.href="historyTest/historyTestDashboard.html";
-									}
-									else if(selectedValue != 'mathematics')
-									{
-										window.location.href="mathsTest/mathsTestDashboard.html";
-									}
-									else if(selectedValue != 'science')
-									{
-										window.location.href="scienceTest/scienceTestDashboard.html";
-									}
-									else if(selectedValue != 'geography')
-									{
-										window.location.href="geographyTest/geographyTestDashboard.html";
-									}
-									else if(selectedValue != 'english')
-									{
-										window.location.href="englishTest/englishTestDashboard.html";
-									}
-									else if(selectedValue != 'music')
-									{
-										window.location.href="musicTest/musicTestDashboard.html";
-									}
-								}
-								else
-								{
-									alert("please select a subject to learn!");
-								}
-							});
-		</script>
+			$("#science").click(function()
+			{
+				selectedSubject = SCIENCE;
+			});
+			$("#computers").click(function()
+			{
+				selectedSubject = COMPUTERS;
+			});
+			$("#geography").click(function()
+			{
+				selectedSubject = GEOGRAPHY;
+			});
+			$("#generalknowledge").click(function()
+			{
+				selectedSubject = GK;
+			});
+			$("#music").click(function()
+			{
+				selectedSubject = MUSIC;
+			});
+			
+			$("#level0").click(function()
+			{
+				selectedLevel = "level0";
+			});
+			$("#level1").click(function()
+			{
+				selectedLevel = "level1";
+			});
+			$("#level2").click(function()
+			{
+				selectedLevel = "level2";
+			});
+			$("#level3").click(function()
+			{
+				selectedLevel = "level3";
+			});
+			$("#level4").click(function()
+			{
+				selectedLevel = "level4";
+			});
+			
+			$("#testButton").click(function()
+			{
+				$("#levelButton").prop('disabled', true);
+				$("#subjectButton").prop('disabled', true);
+				$("#testButton").prop('disabled', true);
+				
+				if(selectedLevel == "No Level" || selectedSubject == "No Subject")
+				{
+					//alert("You'll have to select a level and a subject to start learning!");
+                    var notification = new NotificationFx({
+                        message : "<p>You'll have to select a level and a subject to start the test!</p>",
+                        layout : 'growl',
+                        effect : 'slide',
+                        type : 'notice', // notice, warning or error
+                        onClose : function() {
+                            $("#levelButton").prop('disabled', false);
+							$("#subjectButton").prop('disabled', false);
+							$("#testButton").prop('disabled', false);
+                        }
+                    });
+
+                    // show the notification
+                    notification.show();
+				}
+				else
+				{
+					LEVEL = selectedLevel;
+					SUBJECT = selectedSubject;
+					
+					$.session.set('level', LEVEL);
+					$.session.set('subject',SUBJECT);
+					
+					console.log("Level -- " + $.session.get('level') + "\nSubject -- " + $.session.get('subject'));
+					window.location.href = "testSubjectPage.html";
+				}
+			});
+			
+			/*
+			$.getJSON( "i18/Q&A.json", function( data ) 
+			{
+				var dataObj = $.parseJSON(data);
+				var questionsArray = dataObj.question;
+				var answersArray = dataObj.answer;
+				
+				//Each of these arrays now contain  JSON elements with an index and a question/answer.
+				
+			});
+			*/
+        </script>
 	</body>
 </html>
