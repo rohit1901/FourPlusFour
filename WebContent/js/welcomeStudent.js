@@ -5,18 +5,26 @@ $( document ).ready(function()
     
     $("#learnButton").click(function()
     {
-        window.location.href = "studentLearnPage.html";
+        $("#testButton").prop('disabled', true);
+		$("#learnButton").prop('disabled', true);
+		
+		window.location.href = "studentLearnPage.html";
     });
 
     $("#testButton").click(function()
     {
-        /*var notification = new NotificationFx({
+        $("#testButton").prop('disabled', true);
+		$("#learnButton").prop('disabled', true);
+		
+		window.location.href = "studentTestPage.html";
+		
+		/*var notification = new NotificationFx({
             message : "<p>We aren't ready with our tests but we'll keep you posted!</p>",
             layout : 'growl',
             effect : 'slide',
             type : 'notice', // notice, warning or error
             onClose : function() {
-                //window.location.href = "welcomeStudent.html";
+                window.location.href = "studentLearnPage.html";
             }
         });
 

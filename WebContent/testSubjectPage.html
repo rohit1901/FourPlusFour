@@ -22,38 +22,38 @@
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="index.html"><span>Logout</span></a></span>
 			</div>
 			<header class="codrops-header">
-				<h1>Minimal Form Interface <span>Simplistic, single input view form</span></h1>	
+				<h1>TEST YOUR SKILLS <span id="subject">SUBJECT</span><span id="level"> LEVEL</span></h1>	
 			</header>
 			<section>
 				<form id="theForm" class="simform" autocomplete="off">
 					<div class="simform-inner">
 						<ol class="questions">
 							<li>
-								<span><label for="q1">What's your favorite movie?</label></span>
-								<input id="q1" name="q1" type="text"/>
+								<span><label for="a1" id="q1">Question 1</label></span>
+								<input id="a1" name="a1" type="text"/>
 							</li>
 							<li>
-								<span><label for="q2">Where do you live?</label></span>
-								<input id="q2" name="q2" type="text"/>
+								<span><label for="a2" id="q2">Question 2</label></span>
+								<input id="a2" name="a2" type="text"/>
 							</li>
 							<li>
-								<span><label for="q3">What time do you got to work?</label></span>
-								<input id="q3" name="q3" type="text"/>
+								<span><label for="a3" id="q3">Question 3</label></span>
+								<input id="a3" name="a3" type="text"/>
 							</li>
 							<li>
-								<span><label for="q4">How do you like your veggies?</label></span>
-								<input id="q4" name="q4" type="text"/>
+								<span><label for="a4" id="q4">Question 4</label></span>
+								<input id="a4" name="a4" type="text"/>
 							</li>
 							<li>
-								<span><label for="q5">What book inspires you?</label></span>
-								<input id="q5" name="q5" type="text"/>
+								<span><label for="a5" id="q5">Question 5</label></span>
+								<input id="a5" name="a5" type="text"/>
 							</li>
 							<li>
-								<span><label for="q6">What's your profession?</label></span>
-								<input id="q6" name="q6" type="text"/>
+								<span><label for="a6" id="q6">Question 6</label></span>
+								<input id="a6" name="a6" type="text"/>
 							</li>
 						</ol><!-- /questions -->
-						<button class="submit" type="submit">Send answers</button>
+						<button class="submit" type="submit">Check answers</button>
 						<div class="controls">
 							<button class="next"></button>
 							<div class="progress"></div>
@@ -72,18 +72,35 @@
 		<script src="js/classie-testSubjectPage.js"></script>
 		<script src="js/stepsForm-testSubjectPage.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.session.js"></script>
 		<script>
+			
+			var count = 0;
+			
+			//initialize headings
+			$("#subject").text($.session.get("subject"));
+			$("#level").text($.session.get("level"));
+			
+			var answers = [];
+			
 			$.getJSON( "i18/Q&A.json", function( data ) 
 			{
 				var questionsArray = data.question;
 				var answersArray = data.answer;
 				
+				//Each of these arrays now contain  JSON elements with an index and a question/answer.
+				
 				$.each(questionsArray, function(index, value)
 				{
-					
+					$("#q" + (index + 1)).text($.parseJSON(value).text);
+					$("#q" + (index + 1)).val($.parseJSON(value).index);
 				});
 				
-				//Each of these arrays now contain  JSON elements with an index and a question/answer.
+				$.each(answersArray, function(index, value)
+				{
+					answers.push(value);
+				});
+				
 				
 			});
 			
@@ -102,7 +119,16 @@
 
 					// let's just simulate something...
 					var messageEl = theForm.querySelector( '.final-message' );
-					messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
+					//messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
+										
+					for(var i = 0; i < 6; i++)
+					{
+						if(answers[i] != $("#a" + (i + 1)).val())
+						{
+							count++;
+						}
+					}
+					messageEl.innerHTML = count + ' answers are incorrect.' + '\nThank you! We\'ll be in touch.';
 					classie.addClass( messageEl, 'show' );
 				}
 			} );
