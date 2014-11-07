@@ -120,7 +120,20 @@
 					// let's just simulate something...
 					var messageEl = theForm.querySelector( '.final-message' );
 					//messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
-										
+					$.getJSON( "i18/Q&A.json", function( data ) 
+					{
+						var answersArray = data.answer;
+
+						//Each of these arrays now contain  JSON elements with an index and a question/answer.
+
+						$.each(answersArray, function(index, value)
+						{
+							answers.push(value);
+						});
+
+
+					});
+					
 					for(var i = 0; i < 6; i++)
 					{
 						if(answers[i] != $("#a" + (i + 1)).val())
@@ -128,7 +141,8 @@
 							count++;
 						}
 					}
-					messageEl.innerHTML = count + ' answers are incorrect.' + '\nThank you! We\'ll be in touch.';
+					
+					messageEl.innerHTML = count + ' answers are incorrect.' + '<br>Thank you! We\'ll be in touch.';
 					classie.addClass( messageEl, 'show' );
 				}
 			} );
