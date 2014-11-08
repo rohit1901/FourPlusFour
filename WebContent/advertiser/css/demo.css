@@ -1,4 +1,4 @@
-demo@font-face {
+@font-face {
 	font-weight: normal;
 	font-style: normal;
 	font-family: 'codropsicons';
@@ -121,19 +121,23 @@ label.select-label {
 }
 
 /* To Navigation Style */
+/* To Navigation Style */
 .codrops-top {
 	width: 100%;
 	text-transform: uppercase;
-	font-weight: 700;
+	font-weight: 400;
 	font-size: 0.69em;
 	line-height: 2.2;
+	position: relative;
+	z-index: 2000;
 }
 
 .codrops-top a {
 	display: inline-block;
-	padding: 0 1em;
+	padding: 0.3em 0.7em;
 	text-decoration: none;
 	letter-spacing: 1px;
+	margin: 5px;
 }
 
 .codrops-top span.right {
@@ -241,11 +245,19 @@ body #cdawrap {
 	}
 
 	.codrops-header h1 {
-		font-size: 2em;
+		font-size: 3em;
+	}
+
+	.codrops-header {
+		font-size: 80%;
+	}
+
+	.codrops-top {
+		font-size: 120%;
 	}
 
 	.codrops-icon span {
 		display: none;
 	}
-
+    
 }

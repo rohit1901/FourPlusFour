@@ -133,3 +133,23 @@ a:hover, a:focus {
 	max-width: 300px;
 	text-align: left;
 }
+
+@media screen and (max-width: 35em) {
+
+	body {
+		font-size: 80%;
+	}
+
+	.codrops-header {
+		font-size: 80%;
+	}
+
+	.codrops-top {
+		font-size: 120%;
+	}
+
+	.codrops-icon span {
+		display: none;
+	}
+
+}
