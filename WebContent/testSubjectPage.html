@@ -53,7 +53,7 @@
 								<input id="a6" name="a6" type="text"/>
 							</li>
 						</ol><!-- /questions -->
-						<button class="submit" type="submit">Check answers</button>
+						
 						<div class="controls">
 							<button class="next"></button>
 							<div class="progress"></div>
@@ -81,26 +81,24 @@
 			$("#subject").text($.session.get("subject"));
 			$("#level").text($.session.get("level"));
 			
+            //$("#submit").hide();
+            
 			var answers = [];
-			
+			var questionsArray = [];
+			var answersArray = [];
+            
+            
 			$.getJSON( "i18/Q&A.json", function( data ) 
 			{
-				var questionsArray = data.question;
-				var answersArray = data.answer;
-				
+				questionsArray = data.question;
+				//answersArray = data.answer;				
 				//Each of these arrays now contain  JSON elements with an index and a question/answer.
 				
 				$.each(questionsArray, function(index, value)
 				{
-					$("#q" + (index + 1)).text($.parseJSON(value).text);
-					$("#q" + (index + 1)).val($.parseJSON(value).index);
+                    $("#q" + (index + 1)).text(value.text);
+					$("#q" + (index + 1)).val(value.index);
 				});
-				
-				$.each(answersArray, function(index, value)
-				{
-					answers.push(value);
-				});
-				
 				
 			});
 			
@@ -119,31 +117,33 @@
 
 					// let's just simulate something...
 					var messageEl = theForm.querySelector( '.final-message' );
-					//messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
-					$.getJSON( "i18/Q&A.json", function( data ) 
+					
+                    $.getJSON( "i18/Q&A.json", function( data ) 
 					{
-						var answersArray = data.answer;
+						answersArray = data.answer;
 
 						//Each of these arrays now contain  JSON elements with an index and a question/answer.
 
 						$.each(answersArray, function(index, value)
 						{
-							answers.push(value);
+							answers.push(value.text);
 						});
 
+                        
+                        for(var i = 0; i < 6; i++)
+                        {
+                            if(answers[i] != $("#a" + (i + 1)).val())
+                            {
+                                count++;
+                            }
+                        }
+
+                        messageEl.innerHTML = 'That was Awesome! ' + count + ' answers are incorrect.' + '<br>Click the button below to go to the next level or go back. <br><br><button class="fs-submit" id="submit">Continue</button>';
+                        classie.addClass( messageEl, 'show' );
+                        $("#submit").show();
 
 					});
 					
-					for(var i = 0; i < 6; i++)
-					{
-						if(answers[i] != $("#a" + (i + 1)).val())
-						{
-							count++;
-						}
-					}
-					
-					messageEl.innerHTML = count + ' answers are incorrect.' + '<br>Thank you! We\'ll be in touch.';
-					classie.addClass( messageEl, 'show' );
 				}
 			} );
 		</script>

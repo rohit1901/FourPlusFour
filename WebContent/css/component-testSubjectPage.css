@@ -310,6 +310,55 @@
 	display: none;
 }
 
+button.fs-submit,
+button.fs-continue {
+	padding: 0.6em 1.5em;
+	border: 3px solid rgba(0,0,0,0.45);
+	border-radius: 40px;
+	font-weight: 700;
+	color: rgba(0,0,0,0.4);
+}
+
+.fs-submit,
+.fs-submit  {
+	display: block;
+	float: right;
+}
+
+.fs-submit {
+	background: #26C281;
+	color: rgba(0,0,0,0.45);
+}
+
+button.fs-continue {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 0 40px 60px 0;
+	font-size: 1.25em;
+}
+
+button.fs-submit:hover,
+button.fs-submit:focus,
+button.fs-continue:hover {
+	background: #26C281;
+	color: rgba(0,0,0,0.45);
+}
+
+.fs-continue::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	line-height: 3;
+	text-align: center;
+	background: transparent;
+	color: rgba(0,0,0,0.3);
+	content: 'or press ENTER';
+	font-size: 0.65em;
+	pointer-events: none;
+}
+
 /* Remove IE clear cross */
 input[type=text]::-ms-clear {
     display: none;
