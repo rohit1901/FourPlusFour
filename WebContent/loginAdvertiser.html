@@ -13,6 +13,7 @@
 		<script src="js/modernizr.custom.63321-login.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/ns-default-alert.css" />
 		<link rel="stylesheet" type="text/css" href="css/ns-style-growl-alert.css" />
+        <link rel="stylesheet" type="text/css" href="css/loader.css" />
 		<script src="js/modernizr.custom-alert.js"></script>
 		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 		<style>	
@@ -31,6 +32,7 @@
 		</style>
     </head>
     <body>
+        <div class="pageloader"></div>
         <div class="container">
 		
 			<!-- Codrops top bar -->
@@ -83,6 +85,12 @@
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="js/notificationFx-alert.js"></script>
         <script src="js/jquery.session.js"></script>
+        <script>
+        $(window).load(function() 
+            {
+                $(".pageloader").fadeOut(2000);
+            });
+        </script>
 		<script src="js/loginAdvertiser.js"></script>
     </body>
 </html>

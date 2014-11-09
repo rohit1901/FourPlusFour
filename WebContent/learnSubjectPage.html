@@ -13,12 +13,14 @@
 		<link rel="stylesheet" type="text/css" href="css/demo-studentLearnPage.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons-studentLearnPage.css" />
 		<link rel="stylesheet" type="text/css" href="css/component-studentLearnPage.css" />
+        <link rel="stylesheet" type="text/css" href="css/loader.css" />
 		<script src="js/modernizr.custom-studentLearnPage.js"></script>
         <link rel="stylesheet" type="text/css" href="css/ns-default-alert.css" />
 		<link rel="stylesheet" type="text/css" href="css/ns-style-growl-alert.css" />
 		<script src="js/modernizr.custom-alert.js"></script>
 	</head>
 	<body>
+        <div class="pageloader"></div>
 		<div id="st-container" class="st-container">
 			
 			<!-- content push wrapper -->
@@ -52,6 +54,12 @@
         <script src="js/notificationFx-alert.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.session.js"></script>
+        <script>
+        $(window).load(function() 
+            {
+                $(".pageloader").fadeOut(2000);
+            });
+        </script>
 		<script type="text/javascript">
 			
 			

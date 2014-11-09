@@ -12,9 +12,11 @@
 		<link rel="stylesheet" type="text/css" href="css/normalize-testSubjectPage.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo-testSubjectPage.css" />
 		<link rel="stylesheet" type="text/css" href="css/component-testSubjectPage.css" />
+        <link rel="stylesheet" type="text/css" href="css/loader.css" />
 		<script src="js/modernizr.custom-testSubjectPage.js"></script>
 	</head>
 	<body>
+        <div class="pageloader"></div>
 		<div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
@@ -73,6 +75,12 @@
 		<script src="js/stepsForm-testSubjectPage.js"></script>
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.session.js"></script>
+        <script>
+        $(window).load(function() 
+            {
+                $(".pageloader").fadeOut(2000);
+            });
+        </script>
 		<script>
 			
 			var count = 0;

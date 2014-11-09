@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="css/demo-welcomeStudent.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons-welcomeStudent.css" />
 		<link rel="stylesheet" type="text/css" href="css/component-welcomeStudent.css" />
+        <link rel="stylesheet" type="text/css" href="css/loader.css" />
 		<script src="js/modernizr.custom-welcomeStudent.js"></script>
         <!--<link rel="stylesheet" type="text/css" href="css/ns-default-alert.css" />
 		<link rel="stylesheet" type="text/css" href="css/ns-style-growl-alert.css" />
@@ -22,6 +23,7 @@
 		<script src="js/welcomeStudent.js"></script>
 	</head>
 	<body>
+        <div class="pageloader"></div>
 		<div class="container">
 			<!-- Push Wrapper -->
 			<div class="mp-pusher" id="mp-pusher">
@@ -85,6 +87,12 @@
 		<script src="js/classie-welcomeStudent.js"></script>
         <script src="js/mlpushmenu-welcomeStudent.js"></script>
         <!--<script src="js/notificationFx-alert.js"></script>-->
+        <script>
+        $(window).load(function() 
+            {
+                $(".pageloader").fadeOut(2000);
+            });
+        </script>
         <script>
 			new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
             

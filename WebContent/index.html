@@ -13,10 +13,12 @@
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
+        <link rel="stylesheet" type="text/css" href="css/loader.css" />
 		<script src="js/modernizr.custom.js"></script>
 	</head>
 	<body>
-		<div class="container">
+		<div class="loader"></div>
+        <div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
 				<a class="codrops-icon codrops-icon-prev" href="#" id="reset"><span>Reset Options</span></a>
@@ -45,47 +47,53 @@
 		<script src="js/boxesFx.js"></script>
         <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script>
-			new BoxesFx( document.getElementById( 'boxgallery' ) );
-            
-            $("#loginAs").hide();
-            $("#loginChild").hide();
-            $("#loginAdvertiser").hide();
-            $("#loginSponsor").hide();
-            
-            $("#reset").hide();
-            
-            $("#login").click(function(event)
+            $(window).load(function() 
             {
-                event.preventDefault();
-                
-                $("#reset").show();
-                
-                $("#login").hide();
-                $("#register").hide();
-                
-                $("#loginAs").show();
-                $("#loginChild").show();
-                $("#loginAdvertiser").show();
-                $("#loginSponsor").show();
+                $(".loader").fadeOut(5000);
             });
             
-            $("#register").click(function(event)
-            {
-                window.location.href = "registerSelectProfile.html"   ;
-            });
+            new BoxesFx( document.getElementById( 'boxgallery' ) );
             
-            $("#reset").click(function(event)
-            {
-                $("#login").show();
-                $("#register").show();
-                
-                $("#reset").hide();
-                
                 $("#loginAs").hide();
                 $("#loginChild").hide();
                 $("#loginAdvertiser").hide();
                 $("#loginSponsor").hide();
-            });
+
+                $("#reset").hide();
+
+                $("#login").click(function(event)
+                {
+                    event.preventDefault();
+
+                    $("#reset").show();
+
+                    $("#login").hide();
+                    $("#register").hide();
+
+                    $("#loginAs").show();
+                    $("#loginChild").show();
+                    $("#loginAdvertiser").show();
+                    $("#loginSponsor").show();
+                });
+
+                $("#register").click(function(event)
+                {
+                    window.location.href = "registerSelectProfile.html"   ;
+                });
+
+                $("#reset").click(function(event)
+                {
+                    $("#login").show();
+                    $("#register").show();
+
+                    $("#reset").hide();
+
+                    $("#loginAs").hide();
+                    $("#loginChild").hide();
+                    $("#loginAdvertiser").hide();
+                    $("#loginSponsor").hide();
+                });
+			
             
 		</script>
 	</body>
