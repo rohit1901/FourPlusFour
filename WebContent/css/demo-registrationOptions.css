@@ -36,11 +36,15 @@
 }
 
 body {
-    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-family: 'Dancing Script', 'Open Sans', sans-serif;
     background: #ffffff url(../images/noisebg.png);
     font-weight: 400;
     font-size: 15px;
     color: #333;
+}
+
+h2 {
+	ont-family: 'Dancing Script', 'Open Sans', sans-serif;
 }
 
 a {
@@ -96,7 +100,10 @@ a {
 	float: right;
 	padding-top: 10px;
 	color: #dc4e2a;
+	font-size: 15px;
+	font-weight: 100;
 	text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+	font-family: 'Oswald', 'Open Sans', sans-serif;
 }
 
 .main p {

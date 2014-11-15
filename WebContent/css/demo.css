@@ -18,7 +18,11 @@ body {
 	color: #fff;
 	font-weight: 200;
 	font-size: 1em;
-	font-family: 'Raleway', 'Arial', sans-serif;
+	font-family: 'Dancing Script', 'Open Sans', sans-serif;
+}
+
+h4 {
+	font-family: 'Oswald', 'Open Sans', sans-serif;
 }
 
 a {
@@ -26,6 +30,7 @@ a {
 	text-decoration: none;
 	outline: none;
 	font-weight: 600;
+	font-family: 'Oswald', 'Open Sans', sans-serif;
 }
 
 a:hover, a:focus {
