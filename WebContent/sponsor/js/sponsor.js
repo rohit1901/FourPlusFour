@@ -12,7 +12,8 @@ $( document ).ready(function()
     console.log("amount----" + amount);
     
     $("#contributedAmount").text("" + username + ", you've contributed $" + amount + " till this day.");
-    
+    $("#username-menu").text(username);
+	
     $("#contributeButton").click(function(e)
         {
             e.preventDefault();

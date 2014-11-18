@@ -11,6 +11,8 @@
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/default_sponsor.css" />
 		<link rel="stylesheet" type="text/css" href="css/component_sponsor.css" />
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/menu_cornermorph.css" />
 		<script src="js/modernizr.custom_sponsor.js"></script>
         <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="../js/jquery.session.js"></script>
@@ -18,6 +20,23 @@
 	</head>
 	<body>
 		<div class="container">
+			<div class="menu-wrap">
+				<nav class="menu">
+					<div class="profile"><img src="img/sponsor.jpg" alt="Matthew Greenberg"/><span id="username-menu">Matthew Greenberg</span></div>
+					<div class="link-list">
+						<a href="#"><span>Latest stories</span></a>
+						<a href="#"><span>Your friends</span></a>
+						<a href="#"><span>Personal Settings</span></a>
+						<a href="#"><span>Security &amp; Privacy</span></a>
+					</div>
+					<div class="icon-list">
+						<a href="#"><i class="fa fa-fw fa-home"></i></a>
+						<a href="#"><i class="fa fa-fw fa-question-circle"></i></a>
+						<a href="#"><i class="fa fa-fw fa-power-off"></i></a>
+					</div>
+				</nav>
+			</div>
+			<button class="menu-button" id="open-button"><i class="fa fa-fw fa-cog"></i><span>Open Menu</span></button>
 			<div class="codrops-top clearfix">
 				<a class="codrops-icon codrops-icon-prev" href="../loginSponsor.html"><span>Logout</span></a>
 			</div>
@@ -28,11 +47,10 @@
 			<div class="main">
 				<form class="cbp-mc-form">
 					<div class="cbp-mc-submit-wrap"><input class="cbp-mc-submit" type="submit" value="Contribute" id="contributeButton"/></div>
-					<p style="text-align: center;">Have questions? Fill out the following details and we'll be glad to help!</p>
 					<div class="cbp-mc-column">
 						
 	  				</div>
-	  				<div class="cbp-mc-column">
+	  				<!-- <div class="cbp-mc-column">
 	  					<input type="hidden" id="first_name" name="first_name">
 	  					<input type="hidden" id="last_name" name="last_name">
 	  					<label for="email">Your Email Address</label>
@@ -44,8 +62,11 @@
 						
 					</div>
 	  				<div class="cbp-mc-submit-wrap"><input class="cbp-mc-submit" type="submit" value="Send" id="submitQuestion"/></div>
+					-->
 				</form>
 			</div>
 		</div>
+		<script src="js/classie.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>
